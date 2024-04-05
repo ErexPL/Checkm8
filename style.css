@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+    font-family: "Sometype Mono", monospace;
+    font-size: 16px;
+    user-select: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    transform: translateY(0%);
+}
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+section:nth-child(2) {
+    transform: translateY(100%);
+}
+
+section:nth-child(3) {
+    transform: translateY(200%);
+}
+
+section:nth-child(4) {
+    transform: translateY(300%);
+}
+
+header {
+    position: absolute;
+}
+
+div {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    margin: 50px 0 0 50px;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+div:hover {
+    scale: 1.1;
+    transition: scale 0.5s;
+}
+
+div span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: aliceblue;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+div span:nth-child(1) {
+    top: 0px;
+    transform-origin: left center;
+}
+  
+div span:nth-child(2) {
+    top: 18px;
+    transform-origin: left center;
+}
+  
+div span:nth-child(3) {
+    top: 36px;
+    transform-origin: left center;
+}
+  
+div.open span:nth-child(1) {
+    transform: rotate(45deg);
+    top: -3px;
+    left: 8px;
+}
+  
+div.open span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+}
+  
+div.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 39px;
+    left: 8px;
+}
+
+li {
+    position: relative;
+    opacity: 0;
+    left: -200%;
+    padding-bottom: 30px;
+}
+
+nav li:hover {
+    scale: 1.1;
+}
+
+nav li:nth-child(1){
+    transition: left 1s, scale 0.5s, opacity 1s;
+}
+
+nav li:nth-child(2){
+    transition: left 1.25s, scale 0.5s, opacity 1s;
+}
+
+nav li:nth-child(3){
+    transition: left 1.5s, scale 0.5s, opacity 1s;
+}
+
+nav.open li {
+    opacity: 1;
+    left: 0;
+}
+
+ul {
+    margin-left: 60px;
+    margin-top: 30px;
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: aliceblue;
+}
+
+video {
+    position: absolute;
+    min-height: 100%;
+    filter: hue-rotate(0deg);
+    z-index: -1;
+}
+
+h1 {
+    font-size: 8rem;
+    margin: 0;
+}
+
+@keyframes widen {
+    from {
+        width: 0;
+    }
+    to {
+        width: 40%;
+    }
+}
+
+hr {
+    width: 40%;
+    height: 3px;
+    border: none;
+    background-color: aliceblue;
+    box-shadow: 5px 5px 5px darkslategrey;
+    animation: widen 3s;
+}
+
+main p {
+    height: 30px;
+    font-size: 2rem;
+    margin-top: 30px;
+}
+
+img {
+    position: absolute;
+    width: 100px;
+    transition: transform 1s, width 0.5s;
+    cursor: pointer;
+}
+
+img:hover {
+    width: 105px;
+}
+
+img:active {
+    width: 100px;
+    transition: transform 1s, width 0.1s;
+}
+
+section:nth-child(1) {
+    main {
+        justify-content: center;
+        flex-direction: column;
+        text-shadow: 5px 5px 5px darkslategrey;
+    }
+
+    video {
+        min-width: 100%;
+    }
+
+    img {
+        top: 65%;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    img:hover {
+        transform: translateX(50%) rotate(360deg);
+    }
+}
+
+section:nth-child(2n) {
+    main {
+        justify-content: start;
+    }
+
+    video {
+        right: 30%;
+        transform: translateX(60%);
+    }
+
+    img{
+        top: 50px;
+        right: 50px;
+    }
+    
+    img:hover {
+        transform: rotate(360deg);
+    }
+}
+
+section:nth-child(3) {
+    main {
+        justify-content: end;
+    }
+
+    video {
+        right: 70%;
+        transform: translateX(30%);
+    }
+
+    img{
+        top: 50px;
+        left: 50px;
+    }
+    
+    img:hover {
+        transform: rotate(360deg);
+    }
+
+    footer {
+        left: 0;
+        right: 50px;
+        justify-content: end;
+    }
+}
+
+footer {
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    height: 120px;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+aside {
+    display: absolute;
+    height: 100%;
+    width: 70%;
+    background-color: darkslategrey;
+}
