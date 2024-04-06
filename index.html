@@ -7,57 +7,60 @@
     <script defer src="main.js"></script>
 </head>
 <body>
-    <section>
-        <header>
-            <div>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a onclick="linkScroll(100)">How it works</a></li>
-                    <li><a onclick="linkScroll(200)">Pricing</a></li>
-                    <li><a onclick="linkScroll(300)">Free trial</a></li>
-                </ul> 
-            </nav>
-        </header>
-        <main>
-            <video autoplay muted loop>
-                <source src="bg.mp4" type="video/mp4">
-            </video>
-            <h1>Checkm8</h1>
-            <hr>
-            <p></p>
-            <img src="imgs/logo.png"></img>
-        </main>
-    </section>
-    <section>
-        <main>
-            <aside></aside>
-            <video autoplay muted loop>
-                <source src="bg.mp4" type="video/mp4">
-            </video>
-        </main>
-    </section>
-    <section>
-        <main>
-            <video autoplay muted loop>
-                <source src="bg.mp4" type="video/mp4">
-            </video>
-            <aside></aside>
-        </main>
-    </section>
-    <section>
-        <main>
-            <aside></aside>
-            <video autoplay muted loop>
-                <source src="bg.mp4" type="video/mp4">
-            </video>
-        </main>
-        <footer>
-            <p>&copy; Copyright 2024 Dawid Zyś ZSTI</p>
-        </footer>
-    </section>
+    <img id="return" src="imgs/arrow.png"></img>
+    <div id="sectionContainer">
+        <section>
+            <header>
+                <div id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a onclick="linkScroll(100)">How it works</a></li>
+                        <li><a onclick="linkScroll(200)">Pricing</a></li>
+                        <li><a onclick="linkScroll(300)">Free trial</a></li>
+                    </ul> 
+                </nav>
+            </header>
+            <main>
+                <video autoplay muted loop>
+                    <source src="bg.mp4" type="video/mp4">
+                </video>
+                <h1>Checkm8</h1>
+                <hr>
+                <p></p>
+                <img  id="theme" src="imgs/logo.png"></img>
+            </main>
+        </section>
+        <section>
+            <main>
+                <aside></aside>
+                <video autoplay muted loop>
+                    <source src="bg.mp4" type="video/mp4">
+                </video>
+            </main>
+        </section>
+        <section>
+            <main>
+                <video autoplay muted loop>
+                    <source src="bg.mp4" type="video/mp4">
+                </video>
+                <aside></aside>
+            </main>
+        </section>
+        <section>
+            <main>
+                <aside></aside>
+                <video autoplay muted loop>
+                    <source src="bg.mp4" type="video/mp4">
+                </video>
+            </main>
+            <footer>
+                <p>&copy; Copyright 2024 Dawid Zyś ZSTI</p>
+            </footer>
+        </section>
+    </div>
 </body>
 </html>

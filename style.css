@@ -8,7 +8,7 @@
     overflow-y: hidden;
 }
 
-html, body {
+html, body,  #sectionContainer {
     margin: 0;
     width: 100%;
     height: 100%;
@@ -27,22 +27,22 @@ header {
     position: absolute;
 }
 
-div {
+#hamburger {
     width: 60px;
     height: 45px;
     position: relative;
     margin: 50px 0 0 50px;
     transform: rotate(0deg);
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
     cursor: pointer;
 }
 
-div:hover {
+#hamburger:hover {
     scale: 1.1;
     transition: scale 0.5s;
 }
 
-div span {
+#hamburger span {
     display: block;
     position: absolute;
     height: 5px;
@@ -52,36 +52,36 @@ div span {
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: .25s ease-in-out;
+    transition: 0.25s ease-in-out;
 }
 
-div span:nth-child(1) {
+#hamburger span:nth-child(1) {
     top: 0px;
     transform-origin: left center;
 }
   
-div span:nth-child(2) {
+#hamburger span:nth-child(2) {
     top: 18px;
     transform-origin: left center;
 }
   
-div span:nth-child(3) {
+#hamburger span:nth-child(3) {
     top: 36px;
     transform-origin: left center;
 }
   
-div.open span:nth-child(1) {
+#hamburger.open span:nth-child(1) {
     transform: rotate(45deg);
     top: -3px;
     left: 8px;
 }
   
-div.open span:nth-child(2) {
+#hamburger.open span:nth-child(2) {
     width: 0%;
     opacity: 0;
 }
   
-div.open span:nth-child(3) {
+#hamburger.open span:nth-child(3) {
     transform: rotate(-45deg);
     top: 39px;
     left: 8px;
@@ -173,19 +173,35 @@ main p {
 }
 
 img {
-    position: absolute;
-    width: 100px;
-    transition: transform 1s, width 0.5s;
+    position: fixed;
+    width: 85px;
     cursor: pointer;
+    top:-50%;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 1;
+    transition: width 0.1s, top 2s;
 }
 
 img:hover {
-    width: 105px;
+    width: 90px;
 }
 
 img:active {
-    width: 100px;
-    transition: transform 1s, width 0.1s;
+    width: 80px;
+}
+
+.img-slide-down {
+    top: 1%;
+}
+
+#theme {
+    top: 65%;
+    transition: width 0.1s, transform 1s;
+}
+
+#theme:hover {
+    transform: translateX(50%) rotate(360deg);
 }
 
 section:nth-child(1) {
@@ -198,16 +214,6 @@ section:nth-child(1) {
     video {
         min-width: 100%;
     }
-
-    img {
-        top: 65%;
-        right: 50%;
-        transform: translateX(50%);
-    }
-
-    img:hover {
-        transform: translateX(50%) rotate(360deg);
-    }
 }
 
 section:nth-child(2n) {
@@ -219,15 +225,6 @@ section:nth-child(2n) {
         right: 30%;
         transform: translateX(60%);
     }
-
-    img{
-        top: 50px;
-        right: 50px;
-    }
-    
-    img:hover {
-        transform: rotate(360deg);
-    }
 }
 
 section:nth-child(3) {
@@ -238,15 +235,6 @@ section:nth-child(3) {
     video {
         right: 70%;
         transform: translateX(30%);
-    }
-
-    img{
-        top: 50px;
-        left: 50px;
-    }
-    
-    img:hover {
-        transform: rotate(360deg);
     }
 }
 

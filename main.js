@@ -1,12 +1,14 @@
 const video = document.querySelectorAll('video');
-const img = document.querySelector('img');
+const themeImg = document.querySelector('#theme');
+const returnImg = document.querySelector('#return');
 const h1 = document.querySelector('h1');
 const p = document.querySelector('p');
-const hamburger = document.querySelector('div');
+const hamburger = document.querySelector('#hamburger');
 const nav = document.querySelector('nav');
+const container = document.querySelector('#sectionContainer');
 
 let hueValue = 0;
-img.addEventListener('click', function() {
+themeImg.addEventListener('click', function() {
     hueValue += 60;
     if (hueValue >= 360) {
         hueValue = 0;
@@ -14,6 +16,12 @@ img.addEventListener('click', function() {
     video.forEach((element) => {
         element.style.filter = `hue-rotate(${hueValue}deg)`;
     });
+});
+
+returnImg.addEventListener('click', function() {
+    currentScrollPosition = 0;
+    container.style.transform = `translateY(0vh)`;
+    returnImg.classList.remove('img-slide-down');
 });
 
 hamburger.addEventListener('click', function() {
@@ -29,13 +37,19 @@ document.addEventListener('wheel', function(event) {
     if (event.deltaY > 0) {
         if (currentScrollPosition < 300) {
             currentScrollPosition += 100;
-            document.body.style.transform = `translateY(-${currentScrollPosition}vh)`;
+            container.style.transform = `translateY(-${currentScrollPosition}vh)`;
         }
     } else if (event.deltaY < 0) {
         if (currentScrollPosition > 0) {
             currentScrollPosition -= 100;
-            document.body.style.transform = `translateY(-${currentScrollPosition}vh)`;
+            container.style.transform = `translateY(-${currentScrollPosition}vh)`;
         }
+    }
+
+    if (currentScrollPosition !== 0) {
+        returnImg.classList.add('img-slide-down');
+    } else {
+        returnImg.classList.remove('img-slide-down');
     }
 
     scrollCooldown = true;
@@ -46,11 +60,11 @@ document.addEventListener('wheel', function(event) {
 
 function linkScroll(newScrollPosition) {
     currentScrollPosition = newScrollPosition;
-    document.body.style.transform = `translateY(-${newScrollPosition}vh)`;
+    container.style.transform = `translateY(-${newScrollPosition}vh)`;
+    returnImg.classList.add('img-slide-down');
 }
 
 function startRandomNumbers() {
-
     let finalText = 'Checkm8'.split('');
     let displayText = [];
     let startTime = new Date().getTime();
