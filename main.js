@@ -6,8 +6,8 @@ const p = document.querySelector('p');
 const hamburger = document.querySelector('#hamburger');
 const nav = document.querySelector('nav');
 const container = document.querySelector('#sectionContainer');
-const leftArrow = document.querySelector('img[src="imgs/arrow_mini_left.png"]');
-const rightArrow = document.querySelector('img[src="imgs/arrow_mini_right.png"]');
+const leftArrow = document.querySelector('img[src="imgs/arrow_mini_left.webp"]');
+const rightArrow = document.querySelector('img[src="imgs/arrow_mini_right.webp"]');
 const carouselItems = document.querySelectorAll('section:nth-child(2) main > div');
 
 const videoObserverCallback = (entries, observer) => {
@@ -34,24 +34,19 @@ carouselItems.forEach((item, index) => {
     if (index !== 0) item.style.display = 'none';
 });
 
-leftArrow.addEventListener('click', function() {
+function navigateCarousel(event) {
+    const direction = event.target === leftArrow ? -1 : 1;
     carouselItems[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+    currentIndex = (currentIndex + direction + carouselItems.length) % carouselItems.length;
     carouselItems[currentIndex].style.display = 'flex';
-});
+}
 
-rightArrow.addEventListener('click', function() {
-    carouselItems[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex + 1) % carouselItems.length;
-    carouselItems[currentIndex].style.display = 'flex';
-});
+leftArrow.addEventListener('click', navigateCarousel);
+rightArrow.addEventListener('click', navigateCarousel);
 
 let hueValue = 0;
 themeImg.addEventListener('click', function() {
-    hueValue += 60;
-    if (hueValue >= 360) {
-        hueValue = 0;
-    }
+    hueValue = (hueValue + 60) % 360; // Ensures hueValue stays within 0-360
     videos.forEach((element) => {
         element.style.filter = `hue-rotate(${hueValue}deg)`;
     });
@@ -77,36 +72,18 @@ let scrollCooldown = false;
 document.addEventListener('wheel', function(event) {
     if (scrollCooldown) return;
 
-    if (event.deltaY > 0) {
-        if (currentScrollPosition < 300) {
-            currentScrollPosition += 100;
-            container.style.transform = `translateY(-${currentScrollPosition}vh)`;
-            container.style.scale = `0.9`;
-            setTimeout(() => {
-                container.style.scale = `1`;
-            }, 1000);
-        }
-    } else if (event.deltaY < 0) {
-        if (currentScrollPosition > 0) {
-            currentScrollPosition -= 100;
-            container.style.transform = `translateY(-${currentScrollPosition}vh)`;
-            container.style.scale = `0.9`;
-            setTimeout(() => {
-                container.style.scale = `1`;
-            }, 1000);
-        }
+    let scrollDirection = event.deltaY > 0 ? 100 : -100;
+    if ((scrollDirection > 0 && currentScrollPosition < 300) || (scrollDirection < 0 && currentScrollPosition > 0)) {
+        currentScrollPosition += scrollDirection;
+        container.style.transform = `translateY(-${currentScrollPosition}vh)`;
+        container.style.scale = `0.9`;
+        setTimeout(() => container.style.scale = `1`, 1000);
     }
 
-    if (currentScrollPosition !== 0) {
-        returnImg.classList.add('img-slide-down');
-    } else {
-        returnImg.classList.remove('img-slide-down');
-    }
+    returnImg.classList.toggle('img-slide-down', currentScrollPosition !== 0);
 
     scrollCooldown = true;
-    setTimeout(() => {
-        scrollCooldown = false;
-    }, 1000);
+    setTimeout(() => scrollCooldown = false, 1000);
 });
 
 function linkScroll(newScrollPosition) {

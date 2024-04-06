@@ -151,6 +151,10 @@ video {
     z-index: -1;
 }
 
+video:not(:nth-child(1)) {
+    z-index: -2;
+}
+
 h1 {
     font-size: 8rem;
     margin: 0;
