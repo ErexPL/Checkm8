@@ -224,10 +224,11 @@ section:nth-child(3) main {
 
 footer {
     position: relative;
-    bottom: 75px;
+    left: 50px;
+    bottom: 90px;
     color: aliceblue;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     font-size: 1.1rem;
 }
 
