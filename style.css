@@ -5,6 +5,7 @@
     font-size: 16px;
     user-select: none;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 html, body {
@@ -14,17 +15,12 @@ html, body {
     transform: translateY(0%);
     display: flex;
     flex-wrap: wrap;
-    scroll-snap-type: y mandatory;
-}
-
-::-webkit-scrollbar {
-    display: none;
+    transition: 1s;
 }
 
 section {
     width: 100%;
     height: 100%;
-    scroll-snap-align: start;
 }
 
 header {

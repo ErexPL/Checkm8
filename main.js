@@ -5,16 +5,6 @@ const p = document.querySelector('p');
 const hamburger = document.querySelector('div');
 const nav = document.querySelector('nav');
 
-function smoothScroll(sectionNum) {
-    document.body.style.transition = `1s`;
-    document.body.style.transform = `translateY(${sectionNum * -100}vh)`;
-    setTimeout(() => {
-        document.body.style.transition = `none`;
-        document.body.style.transform = `translateY(0vh)`;
-        window.scrollTo(0, window.innerHeight * sectionNum);
-    }, "1000");
-}
-
 let hueValue = 0;
 img.addEventListener('click', function() {
     hueValue += 60;
@@ -25,10 +15,40 @@ img.addEventListener('click', function() {
         element.style.filter = `hue-rotate(${hueValue}deg)`;
     });
 });
+
 hamburger.addEventListener('click', function() {
     hamburger.classList.toggle('open');
     nav.classList.toggle('open');
 });
+
+let currentScrollPosition = 0;
+let scrollCooldown = false;
+document.addEventListener('wheel', function(event) {
+    if (scrollCooldown) return;
+
+    if (event.deltaY > 0) {
+        if (currentScrollPosition < 300) {
+            currentScrollPosition += 100;
+            document.body.style.transform = `translateY(-${currentScrollPosition}vh)`;
+        }
+    } else if (event.deltaY < 0) {
+        if (currentScrollPosition > 0) {
+            currentScrollPosition -= 100;
+            document.body.style.transform = `translateY(-${currentScrollPosition}vh)`;
+        }
+    }
+
+    scrollCooldown = true;
+    setTimeout(() => {
+        scrollCooldown = false;
+    }, 1000);
+});
+
+function linkScroll(newScrollPosition) {
+    currentScrollPosition = newScrollPosition;
+    document.body.style.transform = `translateY(-${newScrollPosition}vh)`;
+}
+
 function startRandomNumbers() {
 
     let finalText = 'Checkm8'.split('');
