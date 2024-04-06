@@ -5,6 +5,16 @@ const p = document.querySelector('p');
 const hamburger = document.querySelector('div');
 const nav = document.querySelector('nav');
 
+function smoothScroll(sectionNum) {
+    document.body.style.transition = `1s`;
+    document.body.style.transform = `translateY(${sectionNum * -100}vh)`;
+    setTimeout(() => {
+        document.body.style.transition = `none`;
+        document.body.style.transform = `translateY(0vh)`;
+        window.scrollTo(0, window.innerHeight * sectionNum);
+    }, "1000");
+}
+
 let hueValue = 0;
 img.addEventListener('click', function() {
     hueValue += 60;
