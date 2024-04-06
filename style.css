@@ -8,14 +8,17 @@
     overflow-y: hidden;
 }
 
-html, body,  #sectionContainer {
+html, body, #sectionContainer {
     margin: 0;
     width: 100%;
     height: 100%;
-    transform: translateY(0%);
     display: flex;
     flex-wrap: wrap;
     transition: 1s;
+}
+
+body > video {
+    filter: none !important;
 }
 
 section {
@@ -132,13 +135,18 @@ a {
 main {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     height: 100%;
     color: aliceblue;
+    text-shadow: 5px 5px 5px darkslategrey;
 }
 
 video {
     position: absolute;
-    min-height: 100%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     filter: hue-rotate(0deg);
     z-index: -1;
 }
@@ -204,38 +212,14 @@ img:active {
     transform: translateX(50%) rotate(360deg);
 }
 
-section:nth-child(1) {
-    main {
-        justify-content: center;
-        flex-direction: column;
-        text-shadow: 5px 5px 5px darkslategrey;
-    }
-
-    video {
-        min-width: 100%;
-    }
+section:nth-child(2n) main {
+    flex-direction: row;
+    justify-content: start;
 }
 
-section:nth-child(2n) {
-    main {
-        justify-content: start;
-    }
-
-    video {
-        right: 30%;
-        transform: translateX(60%);
-    }
-}
-
-section:nth-child(3) {
-    main {
-        justify-content: end;
-    }
-
-    video {
-        right: 70%;
-        transform: translateX(30%);
-    }
+section:nth-child(3) main {
+    flex-direction: row;
+    justify-content: end;
 }
 
 footer {

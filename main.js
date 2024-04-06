@@ -21,6 +21,10 @@ themeImg.addEventListener('click', function() {
 returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
     container.style.transform = `translateY(0vh)`;
+    container.style.scale = `0.9`;
+    setTimeout(() => {
+        container.style.scale = `1`;
+    }, 1000);
     returnImg.classList.remove('img-slide-down');
 });
 
@@ -38,11 +42,19 @@ document.addEventListener('wheel', function(event) {
         if (currentScrollPosition < 300) {
             currentScrollPosition += 100;
             container.style.transform = `translateY(-${currentScrollPosition}vh)`;
+            container.style.scale = `0.9`;
+            setTimeout(() => {
+                container.style.scale = `1`;
+            }, 1000);
         }
     } else if (event.deltaY < 0) {
         if (currentScrollPosition > 0) {
             currentScrollPosition -= 100;
             container.style.transform = `translateY(-${currentScrollPosition}vh)`;
+            container.style.scale = `0.9`;
+            setTimeout(() => {
+                container.style.scale = `1`;
+            }, 1000);
         }
     }
 
@@ -61,6 +73,10 @@ document.addEventListener('wheel', function(event) {
 function linkScroll(newScrollPosition) {
     currentScrollPosition = newScrollPosition;
     container.style.transform = `translateY(-${newScrollPosition}vh)`;
+    container.style.scale = `0.9`;
+    setTimeout(() => {
+        container.style.scale = `1`;
+    }, 1000);
     returnImg.classList.add('img-slide-down');
 }
 
