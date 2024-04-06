@@ -6,6 +6,26 @@ const p = document.querySelector('p');
 const hamburger = document.querySelector('#hamburger');
 const nav = document.querySelector('nav');
 const container = document.querySelector('#sectionContainer');
+const leftArrow = document.querySelector('img[src="imgs/arrow_mini_left.png"]');
+const rightArrow = document.querySelector('img[src="imgs/arrow_mini_right.png"]');
+const carouselItems = document.querySelectorAll('section:nth-child(2) main > div');
+
+let currentIndex = 0;
+carouselItems.forEach((item, index) => {
+    if (index !== 0) item.style.display = 'none';
+});
+
+leftArrow.addEventListener('click', function() {
+    carouselItems[currentIndex].style.display = 'none';
+    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+    carouselItems[currentIndex].style.display = 'flex';
+});
+
+rightArrow.addEventListener('click', function() {
+    carouselItems[currentIndex].style.display = 'none';
+    currentIndex = (currentIndex + 1) % carouselItems.length;
+    carouselItems[currentIndex].style.display = 'flex';
+});
 
 let hueValue = 0;
 themeImg.addEventListener('click', function() {
