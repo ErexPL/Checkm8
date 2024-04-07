@@ -1,5 +1,3 @@
-const videos = document.querySelectorAll('video');
-const themeImg = document.querySelector('#theme');
 const returnImg = document.querySelector('#return');
 const h1 = document.querySelector('h1');
 const p = document.querySelector('p');
@@ -9,25 +7,6 @@ const container = document.querySelector('#sectionContainer');
 const leftArrow = document.querySelector('img[src="imgs/arrow_mini_left.webp"]');
 const rightArrow = document.querySelector('img[src="imgs/arrow_mini_right.webp"]');
 const carouselItems = document.querySelectorAll('section:nth-child(2) main > div');
-
-const videoObserverCallback = (entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.play();
-        } else {
-            entry.target.pause();
-        }
-    });
-};
-
-const videoObserver = new IntersectionObserver(videoObserverCallback, {
-    rootMargin: '50px 0px',
-    threshold: 0.05
-});
-
-videos.forEach(video => {
-    videoObserver.observe(video);
-});
 
 let currentIndex = 0;
 carouselItems.forEach((item, index) => {
@@ -43,14 +22,6 @@ function navigateCarousel(event) {
 
 leftArrow.addEventListener('click', navigateCarousel);
 rightArrow.addEventListener('click', navigateCarousel);
-
-let hueValue = 0;
-themeImg.addEventListener('click', function() {
-    hueValue = (hueValue + 60) % 360; // Ensures hueValue stays within 0-360
-    videos.forEach((element) => {
-        element.style.filter = `hue-rotate(${hueValue}deg)`;
-    });
-});
 
 returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
