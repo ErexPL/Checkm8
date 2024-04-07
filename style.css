@@ -37,10 +37,6 @@ header {
     transition: 0.5s;
 }
 
-#hamburger:hover {
-    scale: 1.1;
-}
-
 #hamburger span {
     display: block;
     height: 5px;
@@ -49,60 +45,61 @@ header {
     border-radius: 9px;
     opacity: 1;
     position: absolute;
+    top: 0;
     left: 0;
     transition: 0.25s;
-}
-
-#hamburger span {
-    top: 0px;
     transform-origin: left center;
 }
-  
+
 #hamburger span:nth-child(2) {
     top: 18px;
 }
-  
+
 #hamburger span:nth-child(3) {
     top: 36px;
 }
-  
+
+#hamburger:hover {
+    scale: 1.1;
+}
+
 #hamburger.open span:nth-child(1) {
     transform: rotate(45deg);
     top: -3px;
     left: 8px;
 }
-  
+
 #hamburger.open span:nth-child(2) {
     width: 0%;
     opacity: 0;
 }
-  
+
 #hamburger.open span:nth-child(3) {
     transform: rotate(-45deg);
     top: 39px;
     left: 8px;
 }
 
-nav li {
+li {
     position: relative;
     opacity: 0;
     left: -200%;
     padding-bottom: 30px;
 }
 
-nav li:nth-child(1){
+li:nth-child(1){
     transition: left 1s, scale 0.5s, opacity 1s;
 }
 
-nav li:nth-child(2){
+li:nth-child(2){
     transition: left 1.25s, scale 0.5s, opacity 1s;
 }
 
-nav li:nth-child(3){
+li:nth-child(3){
     transition: left 1.5s, scale 0.5s, opacity 1s;
 }
 
-nav li:hover {
+li:hover {
     scale: 1.1;
 }
 
@@ -230,81 +227,67 @@ b {
 
 section:nth-child(2) {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     color: aliceblue;
-    text-shadow: 5px 5px 5px darkslategrey;
-
-    main {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        width: 60%;
-        height: 65%;
-        background-color: darkslategrey;
-        border: 10px solid aliceblue;
-        border-radius: 30px;
-        box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    h2 {
-        font-size: 3rem;
-    }
-
-    .navigation {
-        position: fixed;
-        cursor: pointer;
-        top: calc(100vh + 50%);
-        left: 50%;
-        width: 40px;
-        transform: translateX(calc(35vw - 50%));
-        transition: width 0.1s, top 2s;
-    }
-
-    .navigation:nth-child(1) {
-        transform: translateX(calc(-35vw - 50%));
-    }
-
-    .navigation:hover {
-        width: 45px;
-    }
-
-    .navigation:active {
-        width: 35px;
-    }
-
-    div {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    div p {
-        width: 70%;
-        height: auto;
-        padding: 50px;
-        text-align: justify;
-        margin: 0;
-    }
-
-    div img {
-        width: 30%;
-        height: 100%;
-        border-radius: 0 20px 20px 0;
-    }
-
-    div:nth-child(3) img {
-        border-radius: 20px 0 0 20px;
-    }
 }
 
-section i {
+section:nth-child(2) div {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section:nth-child(2) p {
+    width: 80%;
+    text-align: justify;
+    font-size: 2rem;
+}
+
+section:nth-child(2) span {
+    width: 30%;
+}
+
+section:nth-child(2) span img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+.navigation {
+    position: fixed;
+    cursor: pointer;
+    top: calc(100vh + 50%);
+    left: 2%;
+    width: 40px;
+    transform: translateX(-50%);
+    transition: 0.1s;
+    z-index: 1;
+}
+
+.navigation:nth-last-child(1) {
+    left: 68%;
+}
+
+.navigation:hover {
+    scale: 1.1;
+}
+
+.navigation:active {
+    scale: 0.9;
+}
+
+i {
     top: calc(100vh * (var(--section-index, 1) - 1) + 50px);
 }
 
-section b {
+b {
     top: calc(100vh * (var(--section-index, 1) - 1));
 }
 

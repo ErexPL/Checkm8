@@ -6,7 +6,7 @@ const nav = document.querySelector('nav');
 const container = document.querySelector('#sectionContainer');
 const leftArrow = document.querySelector('img[src="imgs/arrow_mini_left.webp"]');
 const rightArrow = document.querySelector('img[src="imgs/arrow_mini_right.webp"]');
-const carouselItems = document.querySelectorAll('section:nth-child(2) main > div');
+const carouselItems = document.querySelectorAll('section:nth-child(2) div:not(:nth-last-child(2))');
 
 let currentIndex = 0;
 carouselItems.forEach((item, index) => {
