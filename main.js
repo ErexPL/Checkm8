@@ -3,21 +3,22 @@ const h1 = document.querySelector('h1');
 const p = document.querySelector('p');
 const hamburger = document.querySelector('#hamburger');
 const nav = document.querySelector('nav');
-const container = document.querySelector('#sectionContainer');
-const leftArrow = document.querySelector('img[src="imgs/arrow_mini_left.webp"]');
-const rightArrow = document.querySelector('img[src="imgs/arrow_mini_right.webp"]');
-const carouselItems = document.querySelectorAll('section:nth-child(2) div:not(:nth-last-child(2))');
+const box = document.querySelector('#sectionBox');
+const leftArrow = document.querySelector('.navigation.left');
+const rightArrow = document.querySelector('.navigation.right');
+const carouselItems = document.querySelectorAll('.carousel-item');
+const carouselImgs = document.querySelectorAll('.carousel-img');
 
 let currentIndex = 0;
-carouselItems.forEach((item, index) => {
-    if (index !== 0) item.style.display = 'none';
-});
-
+carouselItems[0].style.display = "flex";
+carouselImgs[0].style.display = "flex";
 function navigateCarousel(event) {
     const direction = event.target === leftArrow ? -1 : 1;
     carouselItems[currentIndex].style.display = 'none';
+    carouselImgs[currentIndex].style.display = 'none';
     currentIndex = (currentIndex + direction + carouselItems.length) % carouselItems.length;
     carouselItems[currentIndex].style.display = 'flex';
+    carouselImgs[currentIndex].style.display = 'flex';
 }
 
 leftArrow.addEventListener('click', navigateCarousel);
@@ -25,11 +26,9 @@ rightArrow.addEventListener('click', navigateCarousel);
 
 returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
-    container.style.transform = `translateY(0vh)`;
-    container.style.scale = `0.9`;
-    setTimeout(() => {
-        container.style.scale = `1`;
-    }, 1000);
+    box.style.transform = `translateY(0vh)`;
+    box.style.scale = `0.9`;
+    setTimeout(() => box.style.scale = `1`, 1000);
     returnImg.classList.remove('img-slide-down');
 });
 
@@ -46,9 +45,9 @@ document.addEventListener('wheel', function(event) {
     let scrollDirection = event.deltaY > 0 ? 100 : -100;
     if ((scrollDirection > 0 && currentScrollPosition < 300) || (scrollDirection < 0 && currentScrollPosition > 0)) {
         currentScrollPosition += scrollDirection;
-        container.style.transform = `translateY(-${currentScrollPosition}vh)`;
-        container.style.scale = `0.9`;
-        setTimeout(() => container.style.scale = `1`, 1000);
+        box.style.transform = `translateY(-${currentScrollPosition}vh)`;
+        box.style.scale = `0.9`;
+        setTimeout(() => box.style.scale = `1`, 1000);
     }
 
     returnImg.classList.toggle('img-slide-down', currentScrollPosition !== 0);
@@ -59,10 +58,10 @@ document.addEventListener('wheel', function(event) {
 
 function linkScroll(newScrollPosition) {
     currentScrollPosition = newScrollPosition;
-    container.style.transform = `translateY(-${newScrollPosition}vh)`;
-    container.style.scale = `0.9`;
+    box.style.transform = `translateY(-${newScrollPosition}vh)`;
+    box.style.scale = `0.9`;
     setTimeout(() => {
-        container.style.scale = `1`;
+        box.style.scale = `1`;
     }, 1000);
     returnImg.classList.add('img-slide-down');
 }
