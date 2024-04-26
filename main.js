@@ -28,7 +28,7 @@ function navigateCarousel(event) {
         carouselImgs[currentIndex].classList.remove('img-slide-down');
         currentIndex = nextIndex;
         carouselCooldown = false;
-    }, 500);
+    }, 750);
 }
 
 leftArrow.addEventListener('click', navigateCarousel);
