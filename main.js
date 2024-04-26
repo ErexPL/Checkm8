@@ -10,15 +10,25 @@ const carouselItems = document.querySelectorAll('.carousel-item');
 const carouselImgs = document.querySelectorAll('.carousel-img');
 
 let currentIndex = 0;
+let carouselCooldown = false;
 carouselItems[0].style.display = "flex";
-carouselImgs[0].style.display = "flex";
 function navigateCarousel(event) {
+    if (carouselCooldown) return;
+
     const direction = event.target === leftArrow ? -1 : 1;
+    nextIndex = (currentIndex + direction + carouselItems.length) % carouselItems.length;
     carouselItems[currentIndex].style.display = 'none';
-    carouselImgs[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex + direction + carouselItems.length) % carouselItems.length;
-    carouselItems[currentIndex].style.display = 'flex';
-    carouselImgs[currentIndex].style.display = 'flex';
+    carouselItems[nextIndex].style.display = 'flex';
+    carouselImgs[currentIndex].style.zIndex = '1';
+    carouselImgs[nextIndex].style.zIndex = '2';
+    carouselImgs[nextIndex].classList.add('img-slide-down');
+    carouselCooldown = true;
+
+    setTimeout(() => {
+        carouselImgs[currentIndex].classList.remove('img-slide-down');
+        currentIndex = nextIndex;
+        carouselCooldown = false;
+    }, 500);
 }
 
 leftArrow.addEventListener('click', navigateCarousel);
@@ -27,8 +37,8 @@ rightArrow.addEventListener('click', navigateCarousel);
 returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
     box.style.transform = `translateY(0vh)`;
-    box.style.scale = `0.9`;
-    setTimeout(() => box.style.scale = `1`, 1000);
+    box.style.scale = `0.93`;
+    setTimeout(() => box.style.scale = `1`, 750);
     returnImg.classList.remove('img-slide-down');
 });
 
@@ -46,23 +56,21 @@ document.addEventListener('wheel', function(event) {
     if ((scrollDirection > 0 && currentScrollPosition < 300) || (scrollDirection < 0 && currentScrollPosition > 0)) {
         currentScrollPosition += scrollDirection;
         box.style.transform = `translateY(-${currentScrollPosition}vh)`;
-        box.style.scale = `0.9`;
-        setTimeout(() => box.style.scale = `1`, 1000);
+        box.style.scale = `0.93`;
+        setTimeout(() => box.style.scale = `1`, 750);
     }
 
     returnImg.classList.toggle('img-slide-down', currentScrollPosition !== 0);
 
     scrollCooldown = true;
-    setTimeout(() => scrollCooldown = false, 1000);
+    setTimeout(() => scrollCooldown = false, 750);
 });
 
 function linkScroll(newScrollPosition) {
     currentScrollPosition = newScrollPosition;
     box.style.transform = `translateY(-${newScrollPosition}vh)`;
-    box.style.scale = `0.9`;
-    setTimeout(() => {
-        box.style.scale = `1`;
-    }, 1000);
+    box.style.scale = `0.93`;
+    setTimeout(() => box.style.scale = `1`, 750);
     returnImg.classList.add('img-slide-down');
 }
 
