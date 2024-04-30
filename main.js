@@ -37,9 +37,14 @@ rightArrow.addEventListener('click', navigateCarousel);
 returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
     box.style.transform = `translateY(0vh)`;
-    box.style.scale = `0.93`;
-    setTimeout(() => box.style.scale = `1`, 750);
     returnImg.classList.remove('img-slide-down');
+});
+
+document.addEventListener("click", (event) => {
+    if (!hamburger.contains(event.target) && !nav.contains(event.target)) {
+        hamburger.classList.remove("open");
+        nav.classList.remove('open');
+    }
 });
 
 hamburger.addEventListener('click', function() {
@@ -56,8 +61,6 @@ document.addEventListener('wheel', function(event) {
     if ((scrollDirection > 0 && currentScrollPosition < 300) || (scrollDirection < 0 && currentScrollPosition > 0)) {
         currentScrollPosition += scrollDirection;
         box.style.transform = `translateY(-${currentScrollPosition}vh)`;
-        box.style.scale = `0.93`;
-        setTimeout(() => box.style.scale = `1`, 750);
     }
 
     returnImg.classList.toggle('img-slide-down', currentScrollPosition !== 0);
@@ -69,8 +72,6 @@ document.addEventListener('wheel', function(event) {
 function linkScroll(newScrollPosition) {
     currentScrollPosition = newScrollPosition;
     box.style.transform = `translateY(-${newScrollPosition}vh)`;
-    box.style.scale = `0.93`;
-    setTimeout(() => box.style.scale = `1`, 750);
     returnImg.classList.add('img-slide-down');
 }
 

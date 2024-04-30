@@ -21,7 +21,7 @@ html, body, #sectionBox {
 section {
     width: 100%;
     height: 100%;
-    background-color:darkslategrey;
+    background-color:rgb(30, 60, 90);
     z-index: -2;
 }
 
@@ -89,15 +89,15 @@ li {
 }
 
 li:nth-child(1){
-    transition: left 1s, scale 0.5s, opacity 1s;
+    transition: left 0.75s, scale 0.5s, opacity 1s;
 }
 
 li:nth-child(2){
-    transition: left 1.25s, scale 0.5s, opacity 1s;
+    transition: left 1s, scale 0.5s, opacity 1s;
 }
 
 li:nth-child(3){
-    transition: left 1.5s, scale 0.5s, opacity 1s;
+    transition: left 1.25s, scale 0.5s, opacity 1s;
 }
 
 li:hover {
@@ -185,7 +185,7 @@ main p {
     right: 50%;
     transform: translateX(50%);
     z-index: 1;
-    transition: width 0.1s, top 2s;
+    transition: width 0.1s, top 1s;
 }
 
 #return:hover {
@@ -243,7 +243,7 @@ b {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    top: -250%;
+    top: -500%;
     transition: 0.75s;
 }
 
