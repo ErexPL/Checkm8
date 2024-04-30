@@ -10,50 +10,41 @@ const carouselTitles = document.querySelectorAll('.carousel-titles h2');
 const carouselContentsBox = document.querySelector('.carousel-contents');
 const carouselContents = document.querySelectorAll('.carousel-contents div');
 const carouselImgs = document.querySelectorAll('.carousel-imgs img');
+const carouselParts = [carouselTitles, carouselContents, carouselImgs];
 
 let carouselCooldown = false;
+let direction;
 function navigateCarousel(event) {
     if (carouselCooldown) return;
     carouselCooldown = true;
-    const direction = event.target === leftArrow ? -1 : 1;
+    direction = event.target === leftArrow ? -1 : 1;
 
-    carouselTitles.forEach((title) => {
-        title.style.top = `${parseInt(title.style.top) + direction * 100}%`;
-        if (title.style.top == '200%') {
-            title.style.opacity = 0;
-            title.style.top = '-100%';
-        } else if (title.style.top == '-200%') {
-            title.style.opacity = 0;
-            title.style.top = '100%';
-        } else {
-            title.style.opacity = 1;
-        }
-    });
-
-    carouselContents.forEach((content) => {
-        content.style.left = `${parseInt(content.style.left) + direction * 100}%`;
-        if (content.style.left == '200%') {
-            content.style.opacity = 0;
-            content.style.left = '-100%';
-        } else if (content.style.left == '-200%') {
-            content.style.opacity = 0;
-            content.style.left = '100%';
-        } else {
-            content.style.opacity = 1;
-        }
-    });
-
-    carouselImgs.forEach((img) => {
-        img.style.top = `${parseInt(img.style.top) + direction * 100}%`;
-        if (img.style.top == '200%') {
-            img.style.opacity = 0;
-            img.style.top = '-100%';
-        } else if (img.style.top == '-200%') {
-            img.style.opacity = 0;
-            img.style.top = '100%';
-        } else {
-            img.style.opacity = 1;
-        }
+    carouselParts.forEach((part, index) => {
+        part.forEach((item) => {
+            if (index != 1) {
+                item.style.top = `${parseInt(item.style.top) + direction * 100}%`;
+                if (item.style.top == '200%') {
+                    item.style.opacity = 0;
+                    item.style.top = '-100%';
+                } else if (item.style.top == '-200%') {
+                    item.style.opacity = 0;
+                    item.style.top = '100%';
+                } else {
+                    item.style.opacity = 1;
+                }
+            } else {
+                item.style.left = `${parseInt(item.style.left) + direction * 100}%`;
+                if (item.style.left == '200%') {
+                    item.style.opacity = 0;
+                    item.style.left = '-100%';
+                } else if (item.style.left == '-200%') {
+                    item.style.opacity = 0;
+                    item.style.left = '100%';
+                } else {
+                    item.style.opacity = 1;
+                }
+            }
+        });
     });
 
     setTimeout(() => {
