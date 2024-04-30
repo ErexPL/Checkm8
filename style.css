@@ -177,27 +177,24 @@ main p {
     margin-top: 30px;
 }
 
-#return {
+.return {
     position: fixed;
     width: 85px;
     cursor: pointer;
     top: -50%;
     right: 50%;
-    transform: translateX(50%);
+    transform: translate(50%, 5%);
+    transition: width 0.25s, top 1s;
     z-index: 1;
+}
+
+.return:hover {
+    width: 95px;
+}
+
+.return:active {
     transition: width 0.1s, top 1s;
-}
-
-#return:hover {
-    width: 90px;
-}
-
-#return:active {
-    width: 80px;
-}
-
-#return.img-slide-down {
-    top: 1%;
+    width: 75px;
 }
 
 footer, i, b {
@@ -229,25 +226,54 @@ b {
     z-index: 3;
 }
 
-.carousel-item {
-    display: none;
+.carousel {
     width: 70%;
-    height: 100%;
     flex-direction: column;
     justify-content: center;
 }
 
-.carousel-img {
+.carousel-titles {
     display: flex;
+    position: relative;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-titles > *:nth-child(1) {
+    top: -100px;
+}
+
+.carousel-titles > *:nth-child(2) {
+    top: 0px;
+}
+
+.carousel-titles > *:nth-child(3) {
+    top: 100px;
+}
+
+.carousel-titles > * {
+    position: absolute;
+    transition: top 0.75s;
+}
+
+.carousel-contents > * {
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.carousel-imgs > * {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    top: -500%;
-    transition: 0.75s;
+    top: -100%;
+    transition: top 0.75s;
 }
 
-.carousel-img.img-slide-down {
+.slide-down {
     top: 0%;
 }
 
@@ -280,7 +306,7 @@ h2 {
     left: 2%;
     width: 40px;
     transform: translateX(-50%);
-    transition: 0.1s;
+    transition: 0.25s;
     z-index: 1;
 }
 
@@ -293,6 +319,7 @@ h2 {
 }
 
 .navigation:active {
+    transition: 0s;
     scale: 0.9;
 }
 

@@ -1,4 +1,4 @@
-const returnImg = document.querySelector('#return');
+const returnImg = document.querySelector('.return');
 const h1 = document.querySelector('h1');
 const p = document.querySelector('p');
 const hamburger = document.querySelector('#hamburger');
@@ -6,26 +6,43 @@ const nav = document.querySelector('nav');
 const box = document.querySelector('#sectionBox');
 const leftArrow = document.querySelector('.navigation.left');
 const rightArrow = document.querySelector('.navigation.right');
-const carouselItems = document.querySelectorAll('.carousel-item');
-const carouselImgs = document.querySelectorAll('.carousel-img');
+const carouselTitles = document.querySelectorAll('.carousel-titles > *');
+const carouselContents = document.querySelectorAll('.carousel-contents > *');
+const carouselImgs = document.querySelectorAll('.carousel-imgs > *');
 
 let currentIndex = 0;
 let carouselCooldown = false;
-carouselItems[0].style.display = "flex";
+carouselContents[0].style.display = "flex";
 function navigateCarousel(event) {
     if (carouselCooldown) return;
-
-    const direction = event.target === leftArrow ? -1 : 1;
-    nextIndex = (currentIndex + direction + carouselItems.length) % carouselItems.length;
-    carouselItems[currentIndex].style.display = 'none';
-    carouselItems[nextIndex].style.display = 'flex';
-    carouselImgs[currentIndex].style.zIndex = '1';
-    carouselImgs[nextIndex].style.zIndex = '2';
-    carouselImgs[nextIndex].classList.add('img-slide-down');
     carouselCooldown = true;
 
+    const direction = event.target === leftArrow ? -1 : 1;
+    nextIndex = (currentIndex + direction + carouselContents.length) % carouselContents.length;
+
+    carouselTitles.forEach((title) => {
+        title.style.top = `${parseInt(title.style.top) + direction * 100}px`;
+        if (title.style.top == '200px') {
+            title.style.opacity = 0;
+            title.style.top = `-100px`;
+        } else if (title.style.top == '-200px') {
+            title.style.opacity = 0;
+            title.style.top = `100px`;
+        } else {
+            title.style.opacity = 1;
+        }
+    });
+
+    carouselContents[currentIndex].style.display = 'none';
+    carouselContents[nextIndex].style.display = 'flex';
+    carouselImgs[currentIndex].style.zIndex = '1';
+    carouselImgs[nextIndex].style.opacity = '1';
+    carouselImgs[nextIndex].style.zIndex = '2';
+    carouselImgs[nextIndex].classList.add('slide-down');
+
     setTimeout(() => {
-        carouselImgs[currentIndex].classList.remove('img-slide-down');
+        carouselImgs[currentIndex].style.opacity = '0';
+        carouselImgs[currentIndex].classList.remove('slide-down');
         currentIndex = nextIndex;
         carouselCooldown = false;
     }, 750);
@@ -37,19 +54,17 @@ rightArrow.addEventListener('click', navigateCarousel);
 returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
     box.style.transform = `translateY(0vh)`;
-    returnImg.classList.remove('img-slide-down');
+    returnImg.classList.remove('slide-down');
 });
 
 document.addEventListener("click", (event) => {
-    if (!hamburger.contains(event.target) && !nav.contains(event.target)) {
+    if (hamburger.contains(event.target)) {
+        hamburger.classList.toggle('open');
+        nav.classList.toggle('open');
+    } else {
         hamburger.classList.remove("open");
         nav.classList.remove('open');
     }
-});
-
-hamburger.addEventListener('click', function() {
-    hamburger.classList.toggle('open');
-    nav.classList.toggle('open');
 });
 
 let currentScrollPosition = 0;
@@ -63,7 +78,7 @@ document.addEventListener('wheel', function(event) {
         box.style.transform = `translateY(-${currentScrollPosition}vh)`;
     }
 
-    returnImg.classList.toggle('img-slide-down', currentScrollPosition !== 0);
+    returnImg.classList.toggle('slide-down', currentScrollPosition !== 0);
 
     scrollCooldown = true;
     setTimeout(() => scrollCooldown = false, 750);
@@ -72,7 +87,7 @@ document.addEventListener('wheel', function(event) {
 function linkScroll(newScrollPosition) {
     currentScrollPosition = newScrollPosition;
     box.style.transform = `translateY(-${newScrollPosition}vh)`;
-    returnImg.classList.add('img-slide-down');
+    returnImg.classList.add('slide-down');
 }
 
 function startRandomNumbers() {
