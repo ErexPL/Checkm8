@@ -16,36 +16,42 @@ carouselContents[0].style.display = "flex";
 function navigateCarousel(event) {
     if (carouselCooldown) return;
     carouselCooldown = true;
-
     const direction = event.target === leftArrow ? -1 : 1;
     nextIndex = (currentIndex + direction + carouselContents.length) % carouselContents.length;
 
     carouselTitles.forEach((title) => {
-        title.style.top = `${parseInt(title.style.top) + direction * 100}px`;
-        if (title.style.top == '200px') {
+        title.style.top = `${parseInt(title.style.top) + direction * 100}%`;
+        if (title.style.top == '200%') {
             title.style.opacity = 0;
-            title.style.top = `-100px`;
-        } else if (title.style.top == '-200px') {
+            title.style.top = `-100%`;
+        } else if (title.style.top == '-200%') {
             title.style.opacity = 0;
-            title.style.top = `100px`;
+            title.style.top = `100%`;
         } else {
             title.style.opacity = 1;
         }
     });
 
+    carouselImgs.forEach((img) => {
+        img.style.top = `${parseInt(img.style.top) + direction * 100}%`;
+        if (img.style.top == '200%') {
+            img.style.opacity = 0;
+            img.style.top = `-100%`;
+        } else if (img.style.top == '-200%') {
+            img.style.opacity = 0;
+            img.style.top = `100%`;
+        } else {
+            img.style.opacity = 1;
+        }
+    });
+
     carouselContents[currentIndex].style.display = 'none';
     carouselContents[nextIndex].style.display = 'flex';
-    carouselImgs[currentIndex].style.zIndex = '1';
-    carouselImgs[nextIndex].style.opacity = '1';
-    carouselImgs[nextIndex].style.zIndex = '2';
-    carouselImgs[nextIndex].classList.add('slide-down');
 
     setTimeout(() => {
-        carouselImgs[currentIndex].style.opacity = '0';
-        carouselImgs[currentIndex].classList.remove('slide-down');
         currentIndex = nextIndex;
         carouselCooldown = false;
-    }, 750);
+    }, 1000);
 }
 
 leftArrow.addEventListener('click', navigateCarousel);
@@ -81,7 +87,7 @@ document.addEventListener('wheel', function(event) {
     returnImg.classList.toggle('slide-down', currentScrollPosition !== 0);
 
     scrollCooldown = true;
-    setTimeout(() => scrollCooldown = false, 750);
+    setTimeout(() => scrollCooldown = false, 1000);
 });
 
 function linkScroll(newScrollPosition) {

@@ -14,7 +14,7 @@ html, body, #sectionBox {
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    transition: 0.75s;
+    transition: 1s;
     scale: 1;
 }
 
@@ -197,6 +197,10 @@ main p {
     width: 75px;
 }
 
+.slide-down {
+    top: 0%;
+}
+
 footer, i, b {
     position: absolute;
     color: aliceblue;
@@ -241,21 +245,9 @@ b {
     overflow: hidden;
 }
 
-.carousel-titles > *:nth-child(1) {
-    top: -100px;
-}
-
-.carousel-titles > *:nth-child(2) {
-    top: 0px;
-}
-
-.carousel-titles > *:nth-child(3) {
-    top: 100px;
-}
-
 .carousel-titles > * {
     position: absolute;
-    transition: top 0.75s;
+    transition: top 1s;
 }
 
 .carousel-contents > * {
@@ -270,11 +262,7 @@ b {
     height: 100%;
     object-fit: cover;
     top: -100%;
-    transition: top 0.75s;
-}
-
-.slide-down {
-    top: 0%;
+    transition: top 1s;
 }
 
 section:nth-child(2) {
