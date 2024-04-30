@@ -6,29 +6,40 @@ const nav = document.querySelector('nav');
 const box = document.querySelector('#sectionBox');
 const leftArrow = document.querySelector('.navigation.left');
 const rightArrow = document.querySelector('.navigation.right');
-const carouselTitles = document.querySelectorAll('.carousel-titles > *');
-const carouselContents = document.querySelectorAll('.carousel-contents > *');
-const carouselImgs = document.querySelectorAll('.carousel-imgs > *');
+const carouselTitles = document.querySelectorAll('.carousel-titles h2');
+const carouselContentsBox = document.querySelector('.carousel-contents');
+const carouselContents = document.querySelectorAll('.carousel-contents div');
+const carouselImgs = document.querySelectorAll('.carousel-imgs img');
 
-let currentIndex = 0;
 let carouselCooldown = false;
-carouselContents[0].style.display = "flex";
 function navigateCarousel(event) {
     if (carouselCooldown) return;
     carouselCooldown = true;
     const direction = event.target === leftArrow ? -1 : 1;
-    nextIndex = (currentIndex + direction + carouselContents.length) % carouselContents.length;
 
     carouselTitles.forEach((title) => {
         title.style.top = `${parseInt(title.style.top) + direction * 100}%`;
         if (title.style.top == '200%') {
             title.style.opacity = 0;
-            title.style.top = `-100%`;
+            title.style.top = '-100%';
         } else if (title.style.top == '-200%') {
             title.style.opacity = 0;
-            title.style.top = `100%`;
+            title.style.top = '100%';
         } else {
             title.style.opacity = 1;
+        }
+    });
+
+    carouselContents.forEach((content) => {
+        content.style.left = `${parseInt(content.style.left) + direction * 100}%`;
+        if (content.style.left == '200%') {
+            content.style.opacity = 0;
+            content.style.left = '-100%';
+        } else if (content.style.left == '-200%') {
+            content.style.opacity = 0;
+            content.style.left = '100%';
+        } else {
+            content.style.opacity = 1;
         }
     });
 
@@ -36,20 +47,16 @@ function navigateCarousel(event) {
         img.style.top = `${parseInt(img.style.top) + direction * 100}%`;
         if (img.style.top == '200%') {
             img.style.opacity = 0;
-            img.style.top = `-100%`;
+            img.style.top = '-100%';
         } else if (img.style.top == '-200%') {
             img.style.opacity = 0;
-            img.style.top = `100%`;
+            img.style.top = '100%';
         } else {
             img.style.opacity = 1;
         }
     });
 
-    carouselContents[currentIndex].style.display = 'none';
-    carouselContents[nextIndex].style.display = 'flex';
-
     setTimeout(() => {
-        currentIndex = nextIndex;
         carouselCooldown = false;
     }, 1000);
 }
@@ -61,6 +68,11 @@ returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
     box.style.transform = `translateY(0vh)`;
     returnImg.classList.remove('slide-down');
+});
+
+carouselContentsBox.style.height = `${carouselContents[0].offsetHeight}px`;
+window.addEventListener("resize", (event) => {
+    carouselContentsBox.style.height = `${carouselContents[0].offsetHeight}px`;
 });
 
 document.addEventListener("click", (event) => {

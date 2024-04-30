@@ -230,6 +230,12 @@ b {
     z-index: 3;
 }
 
+section:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    color: aliceblue;
+}
+
 .carousel {
     width: 70%;
     flex-direction: column;
@@ -240,23 +246,52 @@ b {
     display: flex;
     position: relative;
     justify-content: center;
-    height: 100px;
+    align-items: center;
+    height: 5rem;
     width: 100%;
+    margin: 1.75rem;
     overflow: hidden;
 }
 
-.carousel-titles > * {
+.carousel-titles h2 {
+    display: flex;
     position: absolute;
+    align-items: center;
     transition: top 1s;
+    margin: 0;
+    height: 100%;
+    font-size: 3rem;
 }
 
-.carousel-contents > * {
-    display: none;
+.carousel-contents {
+    display: flex;
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+}
+
+.carousel-contents div {
+    display: flex;
+    position: absolute;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    width: 100%;
+    transition: left 1s;
 }
 
-.carousel-imgs > * {
+.carousel-contents div p {
+    width: 80%;
+    text-align: justify;
+    font-size: 2rem;
+}
+
+.carousel-imgs {
+    position: relative;
+    width: 30%;
+    overflow: hidden;
+}
+
+.carousel-imgs img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -265,33 +300,11 @@ b {
     transition: top 1s;
 }
 
-section:nth-child(2) {
-    display: flex;
-    flex-direction: row;
-    color: aliceblue;
-}
-
-section:nth-child(2) p {
-    width: 80%;
-    text-align: justify;
-    font-size: 2rem;
-}
-
-section:nth-child(2) span {
-    position: relative;
-    width: 30%;
-    overflow: hidden;
-}
-
-h2 {
-    font-size: 3rem;
-}
-
 .navigation {
     position: fixed;
     cursor: pointer;
     top: calc(100vh + 50%);
-    left: 2%;
+    left: 4%;
     width: 40px;
     transform: translateX(-50%);
     transition: 0.25s;
@@ -299,7 +312,7 @@ h2 {
 }
 
 .navigation:nth-last-child(1) {
-    left: 68%;
+    left: 66%;
 }
 
 .navigation:hover {
