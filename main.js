@@ -22,24 +22,24 @@ function navigateCarousel(event) {
     carouselParts.forEach((part, index) => {
         part.forEach((item) => {
             if (index != 1) {
-                item.style.top = `${parseInt(item.style.top) + direction * 100}%`;
-                if (item.style.top == '200%') {
-                    item.style.opacity = 0;
-                    item.style.top = '-100%';
-                } else if (item.style.top == '-200%') {
+                item.style.top = `${parseInt(item.style.top) + direction * -100}%`;
+                if (item.style.top == '-200%') {
                     item.style.opacity = 0;
                     item.style.top = '100%';
+                } else if (item.style.top == '200%') {
+                    item.style.opacity = 0;
+                    item.style.top = '-100%';
                 } else {
                     item.style.opacity = 1;
                 }
             } else {
-                item.style.left = `${parseInt(item.style.left) + direction * 100}%`;
-                if (item.style.left == '200%') {
-                    item.style.opacity = 0;
-                    item.style.left = '-100%';
-                } else if (item.style.left == '-200%') {
+                item.style.left = `${parseInt(item.style.left) + direction * -100}%`;
+                if (item.style.left == '-200%') {
                     item.style.opacity = 0;
                     item.style.left = '100%';
+                } else if (item.style.left == '200%') {
+                    item.style.opacity = 0;
+                    item.style.left = '-100%';
                 } else {
                     item.style.opacity = 1;
                 }

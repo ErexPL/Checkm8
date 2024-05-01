@@ -5,7 +5,6 @@
     font-size: 16px;
     user-select: none;
     overflow: hidden;
-    background-color: rgb(15, 15, 15);
 }
 
 html, body, #sectionBox {
@@ -21,7 +20,7 @@ html, body, #sectionBox {
 section {
     width: 100%;
     height: 100%;
-    background-color:rgb(30, 60, 90);
+    background-color: rgb(30, 60, 90);
     z-index: -2;
 }
 
@@ -129,7 +128,7 @@ main {
     flex-direction: column;
     height: 100%;
     color: aliceblue;
-    text-shadow: 5px 5px 5px darkslategrey;
+    text-shadow: 5px 5px 5px rgb(30, 60, 90);
 }
 
 video {
@@ -166,7 +165,7 @@ hr {
     width: 40%;
     height: 3px;
     background-color: aliceblue;
-    box-shadow: 5px 5px 5px darkslategrey;
+    box-shadow: 5px 5px 5px rgb(30, 60, 90);
     animation: widen 3s;
     border: none;
 }
@@ -219,14 +218,13 @@ i {
     left: 50px;
     font-size: 2rem;
     opacity: 0.75;
-    text-shadow: none;
 }
 
 b {
     top: calc(100vh * (var(--section-index, 1) - 1));
     right: 50px;
     font-size: 10rem;
-    text-shadow: 5px 5px 5px darkslategrey;
+    text-shadow: 5px 5px 5px rgb(30, 60, 90);
     z-index: 3;
 }
 
@@ -240,6 +238,17 @@ section:nth-child(2) {
     width: 70%;
     flex-direction: column;
     justify-content: center;
+}
+
+.blink {
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    animation: blink 2s infinite;
+}
+  
+@keyframes blink {
+    50% {
+      opacity: 0;
+    }
 }
 
 .carousel-titles {
@@ -282,7 +291,16 @@ section:nth-child(2) {
 .carousel-contents div p {
     width: 80%;
     text-align: justify;
-    font-size: 2rem;
+    font-size: 1vw;
+    margin: 0;
+}
+
+.carousel-contents div p:nth-child(2) {
+    width: 55%;
+}
+
+.carousel-contents div img {
+    width: 25%;
 }
 
 .carousel-imgs {
