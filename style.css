@@ -7,13 +7,25 @@
     overflow: hidden;
 }
 
-@media only screen and (max-width: 2000px) {
+@media only screen and (max-width: 1000px) {
+    :root {
+        font-size: 6px;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 2000px) {
     :root {
         font-size: 12px;
     }
 }
 
-@media only screen and (min-width: 3000px) {
+@media only screen and (min-width: 2001px) and (max-width: 3000px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 3001px) {
     :root {
         font-size: 24px;
     }
@@ -25,10 +37,12 @@ html, body, #sectionBox {
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    scale: 1;
     transition: 1s;
 }
 
 section {
+    --section-index: 0;
     width: 100%;
     height: 100%;
     background-color: rgb(30, 60, 90);
@@ -37,96 +51,31 @@ section {
 
 header {
     position: absolute;
+    text-shadow: 0.3rem 0.3rem 0.3rem rgb(30, 60, 90);
 }
 
-#hamburger {
-    width: 60px;
-    height: 45px;
-    position: relative;
-    margin: 50px 0 0 50px;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-#hamburger span {
-    display: block;
-    height: 5px;
-    width: 100%;
-    background: aliceblue;
-    border-radius: 9px;
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: 0.25s;
-    transform-origin: left center;
-}
-
-#hamburger span:nth-child(2) {
-    top: 18px;
-}
-
-#hamburger span:nth-child(3) {
-    top: 36px;
-}
-
-#hamburger:hover {
-    scale: 1.1;
-}
-
-#hamburger.open span:nth-child(1) {
-    transform: rotate(45deg);
-    top: -3px;
-    left: 8px;
-}
-
-#hamburger.open span:nth-child(2) {
-    width: 0%;
-    opacity: 0;
-}
-
-#hamburger.open span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 39px;
-    left: 8px;
+ul {
+    list-style: none;
+    margin: 3rem;
+    padding: 0;
 }
 
 li {
     position: relative;
-    opacity: 0;
-    left: -200%;
-    padding-bottom: 30px;
-}
-
-li:nth-child(1){
-    transition: left 0.75s, scale 0.5s, opacity 1s;
-}
-
-li:nth-child(2){
-    transition: left 1s, scale 0.5s, opacity 1s;
-}
-
-li:nth-child(3){
-    transition: left 1.25s, scale 0.5s, opacity 1s;
+    padding-bottom: 2rem;
+    transition: 0.25s;
 }
 
 li:hover {
     scale: 1.1;
 }
 
-nav.open li {
-    opacity: 1;
-    left: 0;
-}
-
-ul {
-    margin: 30px 0 0 60px;
-    list-style: none;
-    padding: 0;
+li:active {
+    scale: 0.95;
 }
 
 a {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-decoration: none;
     color: aliceblue;
     cursor: pointer;
@@ -139,7 +88,7 @@ main {
     flex-direction: column;
     height: 100%;
     color: aliceblue;
-    text-shadow: 5px 5px 5px rgb(30, 60, 90);
+    text-shadow: 0.3rem 0.3rem 0.3rem rgb(30, 60, 90);
 }
 
 video {
@@ -162,16 +111,15 @@ h1 {
 }
 
 .logo {
-    width: 85px;
-    height: 85px;
-    margin: 20px;
+    width: 5rem;
+    margin: 1rem;
 }
 
 hr {
     width: 0;
     height: 0.2rem;
     background-color: aliceblue;
-    box-shadow: 5px 5px 5px rgb(30, 60, 90);
+    box-shadow: 0.3rem 0.3rem 0.3rem rgb(30, 60, 90);
     animation: widen 3s forwards;
     border: none;
 }
@@ -183,29 +131,28 @@ hr {
 }
 
 main p {
-    height: 30px;
+    height: 2rem;
     font-size: 2rem;
-    margin-top: 30px;
+    margin-top: 2rem;
 }
 
 .return {
     position: fixed;
-    width: 85px;
+    width: 5.5rem;
     cursor: pointer;
     top: -50%;
     right: 50%;
-    transform: translate(50%, 5%);
+    transform: translate(50%, 10%);
     transition: width 0.25s, top 1s;
-    z-index: 1;
 }
 
 .return:hover {
-    width: 95px;
+    width: 6rem;
 }
 
 .return:active {
     transition: width 0.1s, top 1s;
-    width: 75px;
+    width: 5rem;
 }
 
 .slide-down {
@@ -215,29 +162,28 @@ main p {
 footer, i, b {
     position: absolute;
     color: aliceblue;
+    
 }
 
 footer {
-    left: 50px;
-    bottom: 25px;
-    display: flex;
-    justify-content: start;
-    font-size: 1.1rem;
+    left: 3rem;
+    bottom: 2rem;
+    font-size: 1.3rem;
 }
 
 i {
-    top: calc(100vh * var(--section-index, 1) + 50px);
-    left: 50px;
+    top: calc(100vh * var(--section-index) + 3rem);
+    left: 3rem;
     font-size: 2rem;
     opacity: 0.75;
 }
 
 b {
-    top: calc(100vh * var(--section-index, 1));
-    right: 50px;
+    top: calc(100vh * var(--section-index));
+    right: 3rem;
     font-size: 10rem;
-    text-shadow: 5px 5px 5px rgb(30, 60, 90);
-    z-index: 3;
+    text-shadow: 0.3rem 0.3rem 0.3rem rgb(30, 60, 90);
+    z-index: 5;
 }
 
 section:nth-child(2) {
@@ -336,10 +282,9 @@ section:nth-child(2) {
     cursor: pointer;
     top: calc(100vh + 50%);
     left: 4%;
-    width: 40px;
+    width: 2.5rem;
     transform: translateX(-50%);
     transition: 0.25s;
-    z-index: 1;
 }
 
 .navigation:nth-last-child(1) {
@@ -385,8 +330,8 @@ table button {
     font-size: 1.3rem;
     font-weight: bold;
     opacity: 0;
-    scale: 1;
     transition: 0.25s;
+    cursor: pointer;
 }
 
 table button:hover {

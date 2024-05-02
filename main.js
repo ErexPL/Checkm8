@@ -95,16 +95,6 @@ setInterval(function () {
     carouselContentsBox.style.height = `${carouselContents[0].offsetHeight}px`;
 }, 100);
 
-document.addEventListener("click", (event) => {
-    if (hamburger.contains(event.target)) {
-        hamburger.classList.toggle('open');
-        nav.classList.toggle('open');
-    } else {
-        hamburger.classList.remove("open");
-        nav.classList.remove('open');
-    }
-});
-
 let currentScrollPosition = 0;
 let scrollCooldown = false;
 document.addEventListener('wheel', function(event) {
