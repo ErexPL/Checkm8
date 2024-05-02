@@ -11,6 +11,35 @@ const carouselContentsBox = document.querySelector('.carousel-contents');
 const carouselContents = document.querySelectorAll('.carousel-contents div');
 const carouselImgs = document.querySelectorAll('.carousel-imgs img');
 const carouselParts = [carouselTitles, carouselContents, carouselImgs];
+const table = document.querySelector('table');
+
+history.scrollRestoration = "manual";
+
+function scaleUpColumn(columnIndex) {
+    const cells = Array.from(table.querySelectorAll(`td:nth-child(${columnIndex + 1}), th:nth-child(${columnIndex + 1})`));
+    cells.forEach(cell => {
+        cell.addEventListener('mouseenter', () => {
+            cells.forEach(c => {
+                c.style.color = 'rgb(20, 50, 80)';
+                c.style.backgroundColor = 'aliceblue';
+                c.style.width = '30%';
+            });
+            table.querySelector(`td:nth-child(${columnIndex + 1}) button`).style.opacity = '1';
+    });
+        cell.addEventListener('mouseleave', () => {
+            cells.forEach(c => {
+                c.style.color = 'aliceblue';
+                c.style.backgroundColor = 'rgb(20, 50, 80)';
+                c.style.width = '20%';
+            });
+            table.querySelector(`td:nth-child(${columnIndex + 1}) button`).style.opacity = '0';
+        });
+    });
+}
+
+for (let i = 1; i < table.rows[0].cells.length; i++) {
+  scaleUpColumn(i);
+}
 
 let carouselCooldown = false;
 let direction;
@@ -62,9 +91,9 @@ returnImg.addEventListener('click', function() {
 });
 
 carouselContentsBox.style.height = `${carouselContents[0].offsetHeight}px`;
-window.addEventListener("resize", (event) => {
+setInterval(function () {
     carouselContentsBox.style.height = `${carouselContents[0].offsetHeight}px`;
-});
+}, 100);
 
 document.addEventListener("click", (event) => {
     if (hamburger.contains(event.target)) {

@@ -7,6 +7,18 @@
     overflow: hidden;
 }
 
+@media only screen and (max-width: 2000px) {
+    :root {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 3000px) {
+    :root {
+        font-size: 24px;
+    }
+}
+
 html, body, #sectionBox {
     margin: 0;
     width: 100%;
@@ -14,7 +26,6 @@ html, body, #sectionBox {
     display: flex;
     flex-wrap: wrap;
     transition: 1s;
-    scale: 1;
 }
 
 section {
@@ -156,18 +167,19 @@ h1 {
     margin: 20px;
 }
 
-@keyframes widen {
-    from { width: 0; }
-    to { width: 40%; }
-}
-
 hr {
-    width: 40%;
-    height: 3px;
+    width: 0;
+    height: 0.2rem;
     background-color: aliceblue;
     box-shadow: 5px 5px 5px rgb(30, 60, 90);
-    animation: widen 3s;
+    animation: widen 3s forwards;
     border: none;
+}
+
+@keyframes widen {
+    100% { 
+        width: 40%;
+    }
 }
 
 main p {
@@ -214,14 +226,14 @@ footer {
 }
 
 i {
-    top: calc(100vh * (var(--section-index, 1) - 1) + 50px);
+    top: calc(100vh * var(--section-index, 1) + 50px);
     left: 50px;
     font-size: 2rem;
     opacity: 0.75;
 }
 
 b {
-    top: calc(100vh * (var(--section-index, 1) - 1));
+    top: calc(100vh * var(--section-index, 1));
     right: 50px;
     font-size: 10rem;
     text-shadow: 5px 5px 5px rgb(30, 60, 90);
@@ -229,6 +241,7 @@ b {
 }
 
 section:nth-child(2) {
+    --section-index: 1;
     display: flex;
     flex-direction: row;
     color: aliceblue;
@@ -291,7 +304,7 @@ section:nth-child(2) {
 .carousel-contents div p {
     width: 80%;
     text-align: justify;
-    font-size: 1vw;
+    font-size: 1.6rem;
     margin: 0;
 }
 
@@ -338,10 +351,73 @@ section:nth-child(2) {
 }
 
 .navigation:active {
-    transition: 0s;
-    scale: 0.9;
+    transition: 0.1s;
+    scale: 0.95;
 }
 
-section:nth-child(2) { --section-index: 2; }
-section:nth-child(3) { --section-index: 3; }
-section:nth-child(4) { --section-index: 4; }
+section:nth-child(3) {
+    --section-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(20, 50, 80);
+}
+
+table {
+    width: 70%;
+    margin-top: 6rem;
+    border-collapse: collapse;
+    color: aliceblue;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+table img {
+    width: 2rem;
+}
+
+table button {
+    background-color: rgb(20, 50, 80);
+    color: aliceblue;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 4rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0;
+    scale: 1;
+    transition: 0.25s;
+}
+
+table button:hover {
+    scale: 1.1;
+}
+
+table button:active {
+    scale: 0.95;
+    transition: 0.1s;
+}
+
+th {
+    font-size: 2.5rem;
+}
+
+tr:nth-child(2) td {
+    font-size: 3rem;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+    width: 25%;
+}
+
+th, td {
+    width: 10%;
+    padding: 1rem;
+    transition: 0.25s;
+}
+
+section:nth-child(4) {
+    --section-index: 3;
+    background-color: rgb(10, 40, 70);
+}
