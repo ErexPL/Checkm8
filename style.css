@@ -7,15 +7,11 @@
     overflow: hidden;
 }
 
-@media only screen and (max-width: 425px) {
-    :root:root {
-        font-size: 4px;
-    }
-}
+
 
 @media only screen and (max-width: 750px) {
     :root {
-        font-size: 6px;
+        font-size: 5px;
     }
 
     .carousel.carousel {
