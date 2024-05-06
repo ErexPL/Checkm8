@@ -190,29 +190,26 @@ function startTextCycle() {
     setNextState();
 }
 
-startTextCycle();
+function startRandomNumbers() {
+    let finalText = 'Checkm8'.split('');
+    let displayText = [];
+    let startTime = new Date().getTime();
 
-if (window.innerWidth > 750) {
-    function startRandomNumbers() {
-        let finalText = 'Checkm8'.split('');
-        let displayText = [];
-        let startTime = new Date().getTime();
-    
-        finalText.forEach((_, index) => {
-            const stopAfter = 500 + index * 500;
-    
-            let intervalId = setInterval(() => {
-                if (new Date().getTime() - startTime >= stopAfter) {
-                    clearInterval(intervalId);
-                    displayText[index] = finalText[index];
-                    h1.textContent = displayText.join('');
-                } else {
-                    displayText[index] = Math.floor(Math.random() * 10).toString();
-                    h1.textContent = displayText.join('');
-                }
-            }, 100);
-        });
-    }
-    
-    startRandomNumbers();
+    finalText.forEach((_, index) => {
+        const stopAfter = 500 + index * 500;
+
+        let intervalId = setInterval(() => {
+            if (new Date().getTime() - startTime >= stopAfter) {
+                clearInterval(intervalId);
+                displayText[index] = finalText[index];
+                h1.textContent = displayText.join('');
+            } else {
+                displayText[index] = Math.floor(Math.random() * 10).toString();
+                h1.textContent = displayText.join('');
+            }
+        }, 100);
+    });
 }
+
+startTextCycle();
+startRandomNumbers(); 
