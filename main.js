@@ -95,12 +95,41 @@ setInterval(function () {
     carouselContentsBox.style.height = `${carouselContents[0].offsetHeight}px`;
 }, 100);
 
+let touchStartPosY = 0;
+let touchEndPosY = 0;
+
+document.addEventListener('touchstart', function(event) {
+  touchStartPosY = event.changedTouches[0].pageY;
+});
+
+document.addEventListener('touchend', function(event) {
+  touchEndPosY = event.changedTouches[0].pageY;
+  let distance = touchEndPosY - touchStartPosY;
+  if (distance > 0) {
+    websiteScroll('UP');
+  } else {
+    websiteScroll('DOWN');
+  }
+});
+
+document.addEventListener('wheel', function(event) {
+    websiteScroll(event);
+});
+
 let currentScrollPosition = 0;
 let scrollCooldown = false;
-document.addEventListener('wheel', function(event) {
+let scrollDirection;
+function websiteScroll(event) {
     if (scrollCooldown) return;
 
-    let scrollDirection = event.deltaY > 0 ? 100 : -100;
+    if (event == 'UP') {
+        scrollDirection = -100;
+    } else if (event == 'DOWN') {
+        scrollDirection = 100;
+    } else {
+        scrollDirection = event.deltaY > 0 ? 100 : -100;
+    }
+    
     if ((scrollDirection > 0 && currentScrollPosition < 300) || (scrollDirection < 0 && currentScrollPosition > 0)) {
         currentScrollPosition += scrollDirection;
         box.style.transform = `translateY(-${currentScrollPosition}vh)`;
@@ -110,7 +139,7 @@ document.addEventListener('wheel', function(event) {
 
     scrollCooldown = true;
     setTimeout(() => scrollCooldown = false, 1000);
-});
+}
 
 function linkScroll(newScrollPosition) {
     currentScrollPosition = newScrollPosition;
