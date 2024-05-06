@@ -7,13 +7,41 @@
     overflow: hidden;
 }
 
-@media only screen and (max-width: 1000px) {
-    :root {
-        font-size: 6px;
+@media only screen and (max-width: 425px) {
+    :root:root {
+        font-size: 4px;
     }
 }
 
-@media only screen and (min-width: 1001px) and (max-width: 2000px) {
+@media only screen and (max-width: 750px) {
+    :root {
+        font-size: 6px;
+    }
+
+    .carousel.carousel {
+        width: 100%;
+    }
+
+    .carousel.carousel * {
+        transition: none;
+    }
+
+    .carousel-imgs {
+        display: none;
+    }
+
+    .navigation.navigation:nth-last-child(1) {
+        left: 96%;
+    }
+}
+
+@media only screen and (min-width: 751px) and (max-width: 1250px) {
+    :root {
+        font-size: 8px;
+    }
+}
+
+@media only screen and (min-width: 1251px) and (max-width: 2000px) {
     :root {
         font-size: 12px;
     }
@@ -139,7 +167,7 @@ h1 {
 
 .logo {
     width: 5rem;
-    margin: 1rem;
+    margin: 2rem;
 }
 
 hr {
@@ -153,7 +181,7 @@ hr {
 
 @keyframes widen {
     100% { 
-        width: 40%;
+        width: 50rem;
     }
 }
 
@@ -270,7 +298,7 @@ b {
     width: 80%;
     text-align: justify;
     font-size: 1.6rem;
-    margin: 0;
+    margin: 1rem;
 }
 
 .carousel-contents div p:nth-child(2) {
