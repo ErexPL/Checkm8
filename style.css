@@ -148,8 +148,8 @@ main {
 
 video {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: -1;
 }
@@ -226,14 +226,14 @@ footer {
 }
 
 i {
-    top: calc(100vh * var(--section-index) + 3rem);
+    top: calc(100% * var(--section-index) + 3rem);
     left: 3rem;
     font-size: 2rem;
     opacity: 0.75;
 }
 
 b {
-    top: calc(100vh * var(--section-index));
+    top: calc(100% * var(--section-index));
     right: 3rem;
     font-size: 10rem;
     text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
@@ -327,7 +327,7 @@ b {
 .navigation {
     position: fixed;
     cursor: pointer;
-    top: calc(100vh + 50%);
+    top: 150%;
     left: 4%;
     width: 2.5rem;
     transform: translateX(-50%);

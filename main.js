@@ -86,7 +86,7 @@ rightArrow.addEventListener('click', navigateCarousel);
 
 returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
-    box.style.transform = `translateY(0vh)`;
+    box.style.transform = `translateY(0%)`;
     returnImg.classList.remove('slide-down');
 });
 
@@ -132,7 +132,7 @@ function websiteScroll(event) {
     
     if ((scrollDirection > 0 && currentScrollPosition < 300) || (scrollDirection < 0 && currentScrollPosition > 0)) {
         currentScrollPosition += scrollDirection;
-        box.style.transform = `translateY(-${currentScrollPosition}vh)`;
+        box.style.transform = `translateY(-${currentScrollPosition}%)`;
     }
 
     returnImg.classList.toggle('slide-down', currentScrollPosition !== 0);
@@ -143,7 +143,7 @@ function websiteScroll(event) {
 
 function linkScroll(newScrollPosition) {
     currentScrollPosition = newScrollPosition;
-    box.style.transform = `translateY(-${newScrollPosition}vh)`;
+    box.style.transform = `translateY(-${newScrollPosition}%)`;
     returnImg.classList.add('slide-down');
 }
 
