@@ -108,7 +108,7 @@ header {
 
 ul {
     list-style: none;
-    margin: 3rem;
+    margin: 4rem;
     padding: 0;
 }
 
@@ -189,7 +189,7 @@ main p {
 
 .return {
     position: fixed;
-    width: 5.5rem;
+    width: 7rem;
     cursor: pointer;
     top: -50%;
     right: 50%;
@@ -198,16 +198,16 @@ main p {
 }
 
 .return:hover {
-    width: 6rem;
+    width: 8rem;
 }
 
 .return:active {
     transition: width 0.1s, top 1s;
-    width: 5rem;
+    width: 6.5rem;
 }
 
 .slide-down {
-    top: 0%;
+    top: 1%;
 }
 
 footer, i, b {
@@ -216,9 +216,13 @@ footer, i, b {
 
 footer {
     left: 3rem;
-    bottom: 2rem;
+    bottom: 3rem;
     font-size: 1.3rem;
     text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin: 0;
 }
 
 i {
@@ -229,7 +233,7 @@ i {
 }
 
 b {
-    top: calc(100% * var(--section-index));
+    top: calc(100% * var(--section-index) + 1rem);
     right: 3rem;
     font-size: 10rem;
     text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
