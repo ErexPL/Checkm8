@@ -354,11 +354,11 @@ table button:active {
 }
 
 th {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
 }
 
 tr:nth-child(2) td {
-    font-size: 3rem;
+    font-size: 2.3rem;
 }
 
 th:first-child, td:first-child {

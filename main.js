@@ -105,9 +105,9 @@ document.addEventListener('touchstart', function(event) {
 document.addEventListener('touchend', function(event) {
   touchEndPosY = event.changedTouches[0].pageY;
   let distance = touchEndPosY - touchStartPosY;
-  if (distance > 0) {
+  if (distance > 10) {
     websiteScroll('UP');
-  } else {
+  } else if (distance < -10) {
     websiteScroll('DOWN');
   }
 });
