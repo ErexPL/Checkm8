@@ -86,9 +86,7 @@ function navigateCarousel(event) {
         })
     })
 
-    setTimeout(() => {
-        carouselCooldown = false;
-    }, 1000)
+    setTimeout(() => carouselCooldown = false, 750)
 }
 
 leftArrow.addEventListener('click', navigateCarousel);
@@ -131,6 +129,7 @@ let scrollCooldown = false;
 let scrollDirection;
 function websiteScroll(event) {
     if (scrollCooldown) return;
+    scrollCooldown = true;
 
     if (event == 'UP') {
         scrollDirection = -100;
@@ -146,9 +145,7 @@ function websiteScroll(event) {
     }
 
     returnImg.classList.toggle('slide-down', currentScrollPosition !== 0);
-
-    scrollCooldown = true;
-    setTimeout(() => scrollCooldown = false, 1000);
+    setTimeout(() => scrollCooldown = false, 750);
 }
 
 function linkScroll(newScrollPosition) {

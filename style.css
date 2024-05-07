@@ -70,7 +70,7 @@ html, body, #sectionBox {
     display: flex;
     flex-wrap: wrap;
     scale: 1;
-    transition: 1s;
+    transition: 0.75s;
 }
 
 section {
@@ -194,7 +194,7 @@ main p {
 
 .return {
     position: fixed;
-    width: 7rem;
+    width: 6rem;
     cursor: pointer;
     top: -50%;
     right: 50%;
@@ -203,12 +203,12 @@ main p {
 }
 
 .return:hover {
-    width: 8rem;
+    width: 7rem;
 }
 
 .return:active {
     transition: width 0.1s, top 1s;
-    width: 6.5rem;
+    width: 5.5rem;
 }
 
 .slide-down {
@@ -278,7 +278,7 @@ b {
     display: flex;
     position: absolute;
     align-items: center;
-    transition: top 1s;
+    transition: top 0.75s;
     margin: 0;
     height: 100%;
     font-size: 3rem;
@@ -297,7 +297,7 @@ b {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    transition: left 1s;
+    transition: left 0.75s;
 }
 
 .carousel-contents div p {
@@ -327,7 +327,7 @@ b {
     height: 100%;
     object-fit: cover;
     top: -100%;
-    transition: top 1s;
+    transition: top 0.75s;
 }
 
 .navigation {
