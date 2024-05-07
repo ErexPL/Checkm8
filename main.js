@@ -51,8 +51,8 @@ for (let i = 1; i < table.rows[0].cells.length; i++) {
   scaleUpColumn(i);
 }
 
-let carouselCooldown = false;
 let direction;
+let carouselCooldown = false;
 function navigateCarousel(event) {
     if (carouselCooldown) return;
     carouselCooldown = true;
@@ -125,8 +125,8 @@ document.addEventListener('wheel', function(event) {
 })
 
 let currentScrollPosition = 0;
-let scrollCooldown = false;
 let scrollDirection;
+let scrollCooldown = false;
 function websiteScroll(event) {
     if (scrollCooldown) return;
     scrollCooldown = true;
@@ -145,7 +145,7 @@ function websiteScroll(event) {
     }
 
     returnImg.classList.toggle('slide-down', currentScrollPosition !== 0);
-    setTimeout(() => scrollCooldown = false, 750);
+    setTimeout(() => scrollCooldown = false, 250);
 }
 
 function linkScroll(newScrollPosition) {
