@@ -11,7 +11,7 @@
 
 @media only screen and (max-width: 750px) {
     :root {
-        font-size: 6px;
+        font-size: 5px;
     }
 
     .carousel.carousel {
@@ -350,9 +350,9 @@ b {
 }
 
 table {
-    width: 80%;
-    border-spacing: 0rem;
+    width: 85%;
     font-size: 1.3rem;
+    border-collapse: collapse;
     text-align: center;
 }
 
@@ -398,12 +398,12 @@ tr:nth-child(2) td {
 
 th:first-child, td:first-child {
     text-align: left;
-    width: 25%;
 }
 
 th, td {
     width: 20%;
     padding: 1rem;
+    white-space: nowrap;
     transition: 0.25s;
 }
 

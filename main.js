@@ -23,7 +23,7 @@ function scaleUpColumn(columnIndex) {
             cells.forEach(c => {
                 c.style.color = 'rgb(20, 50, 80)';
                 c.style.backgroundColor = 'aliceblue';
-                c.style.width = '30%';
+                c.style.width = '25%';
             });
             table.querySelector(`td:nth-child(${columnIndex + 1}) button`).style.opacity = '1';
             table.querySelectorAll(`th:nth-child(${columnIndex + 1}) img`).forEach(img => {
