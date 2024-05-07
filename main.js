@@ -12,6 +12,7 @@ const carouselContents = document.querySelectorAll('.carousel-contents div');
 const carouselImgs = document.querySelectorAll('.carousel-imgs img');
 const carouselParts = [carouselTitles, carouselContents, carouselImgs];
 const table = document.querySelector('table');
+const formOptions = document.querySelectorAll('select *');
 
 history.scrollRestoration = "manual";
 
@@ -24,26 +25,26 @@ function scaleUpColumn(columnIndex) {
                 c.style.color = 'rgb(20, 50, 80)';
                 c.style.backgroundColor = 'aliceblue';
                 c.style.width = '25%';
-            });
+            })
             table.querySelector(`td:nth-child(${columnIndex + 1}) button`).style.opacity = '1';
             table.querySelectorAll(`th:nth-child(${columnIndex + 1}) img`).forEach(img => {
                 [prefix] = img.src.split('_');
                 img.src = `${prefix}_` + 'dark.png';
-            });
-    });
+            })
+    })
         cell.addEventListener('mouseleave', () => {
             cells.forEach(c => {
                 c.style.color = 'aliceblue';
                 c.style.backgroundColor = 'rgb(20, 50, 80)';
                 c.style.width = '20%';
-            });
+            })
             table.querySelector(`td:nth-child(${columnIndex + 1}) button`).style.opacity = '0';
             table.querySelectorAll(`th:nth-child(${columnIndex + 1}) img`).forEach(img => {
                 [prefix] = img.src.split('_');
                 img.src = `${prefix}_` + 'light.png';
-            });
-        });
-    });
+            })
+        })
+    })
 }
 
 for (let i = 1; i < table.rows[0].cells.length; i++) {
@@ -82,12 +83,12 @@ function navigateCarousel(event) {
                     item.style.opacity = 1;
                 }
             }
-        });
-    });
+        })
+    })
 
     setTimeout(() => {
         carouselCooldown = false;
-    }, 1000);
+    }, 1000)
 }
 
 leftArrow.addEventListener('click', navigateCarousel);
@@ -97,19 +98,19 @@ returnImg.addEventListener('click', function() {
     currentScrollPosition = 0;
     box.style.transform = `translateY(0%)`;
     returnImg.classList.remove('slide-down');
-});
+})
 
 carouselContentsBox.style.height = `${carouselContents[0].offsetHeight}px`;
 setInterval(function () {
     carouselContentsBox.style.height = `${carouselContents[0].offsetHeight}px`;
-}, 100);
+}, 100)
 
 let touchStartPosY = 0;
 let touchEndPosY = 0;
 
 document.addEventListener('touchstart', function(event) {
   touchStartPosY = event.changedTouches[0].pageY;
-});
+})
 
 document.addEventListener('touchend', function(event) {
   touchEndPosY = event.changedTouches[0].pageY;
@@ -119,11 +120,11 @@ document.addEventListener('touchend', function(event) {
   } else if (distance < -10) {
     websiteScroll('DOWN');
   }
-});
+})
 
 document.addEventListener('wheel', function(event) {
     websiteScroll(event);
-});
+})
 
 let currentScrollPosition = 0;
 let scrollCooldown = false;
@@ -156,6 +157,14 @@ function linkScroll(newScrollPosition) {
     returnImg.classList.add('slide-down');
 }
 
+function selectOption(option) {
+    formOptions.forEach(formOption => {
+        if (formOption.value == option) {
+            formOption.selected = 'selected';
+        }
+    })
+}
+
 function startTextCycle() {
     let states = ['The Ultimate AI Chatbot', 'Setting New Standards', 'Just Straight Up Better'];
     let currentState = 0;
@@ -170,7 +179,7 @@ function startTextCycle() {
                 clearInterval(intervalId);
                 setTimeout(() => callback(), 2000);
             }
-        }, 100);
+        }, 100)
     }
 
     function backspaceText(callback) {
@@ -183,7 +192,7 @@ function startTextCycle() {
                 clearInterval(intervalId);
                 callback();
             }
-        }, 100);
+        }, 100)
     }
 
     function setNextState() {
@@ -192,8 +201,8 @@ function startTextCycle() {
             backspaceText(() => {
                 currentState = (currentState + 1) % states.length;
                 setNextState();
-            });
-        });
+            })
+        })
     }
 
     setNextState();
@@ -216,9 +225,9 @@ function startRandomNumbers() {
                 displayText[index] = Math.floor(Math.random() * 10).toString();
                 h1.textContent = displayText.join('');
             }
-        }, 100);
-    });
+        }, 100)
+    })
 }
 
 startTextCycle();
-startRandomNumbers(); 
+startRandomNumbers();

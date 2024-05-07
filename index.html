@@ -148,39 +148,43 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td><button onclick="linkScroll(300)">Subscribe</button></td>
-                    <td><button onclick="linkScroll(300)">Subscribe</button></td>
-                    <td><button onclick="linkScroll(300)">Subscribe</button></td>
+                    <td><button onclick="linkScroll(300); selectOption('basic')">Subscribe</button></td>
+                    <td><button onclick="linkScroll(300); selectOption('pro')">Subscribe</button></td>
+                    <td><button onclick="linkScroll(300); selectOption('enterprise')">Subscribe</button></td>
                 </tr>
             </table>
         </section>
         <section>
             <i>Get Started</i>
             <b>03</b>
-            <h2>_Begin working with Checkm8_</h2>
-            <form>
-              <label for="firstName" class="short">First Name</label>
-              <label for="lastName" class="short">Last Name</label>
-              <input type="text" id="firstName" name="firstName" class="short" required>
-              <input type="text" id="lastName" name="lastName" class="short" required>
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-              <label for="confirmEmail">Confirm Email</label>
-              <input type="email" id="confirmEmail" name="confirmEmail" required>
-              <label for="subscriptionLevel">Subscription level</label>
-              <select name="subscriptionLevel" id="subscriptionLevel">
-                <option value="basic">Basic ($49/month)</option>
-                <option value="pro">Pro ($99/month)</option>
-                <option value="enterprise">Enterprise ($299/month)</option>
-              </select>
-              <label for="cardNumber">Card Number</label>
-              <input type="number" id="cardNumber" name="cardNumber" required>
-              <label for="expiration" class="short">Expiration (mm/yy)</label>
-              <label for="securityCode" class="short">Security Code</label>
-              <input type="text" id="expiration" name="expiration" class="short" required>
-              <input type="number" id="securityCode" name="securityCode" class="short" required>
-              <input type="submit" value="Subscribe">
-            </form>
+            <img src="imgs/form_img_1.png" alt="form_img_1">
+            <span>
+              <h2>Begin working with Checkm8</h2>
+              <form>
+                <label for="firstName" class="short">First Name</label>
+                <label for="lastName" class="short">Last Name</label>
+                <input type="text" id="firstName" name="firstName" class="short" required>
+                <input type="text" id="lastName" name="lastName" class="short" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="confirmEmail">Confirm Email</label>
+                <input type="email" id="confirmEmail" name="confirmEmail" required>
+                <label for="subscriptionLevel">Subscription level</label>
+                <select name="subscriptionLevel" id="subscriptionLevel">
+                  <option value="basic">Basic ($49/month)</option>
+                  <option value="pro">Pro ($99/month)</option>
+                  <option value="enterprise">Enterprise ($299/month)</option>
+                </select>
+                <label for="cardNumber">Card Number</label>
+                <input type="number" id="cardNumber" name="cardNumber" required>
+                <label for="expiration" class="short">Expiration (mm/yy)</label>
+                <label for="securityCode" class="short">Security Code</label>
+                <input type="text" id="expiration" name="expiration" class="short" required>
+                <input type="number" id="securityCode" name="securityCode" class="short" required>
+                <input type="submit" value="Subscribe">
+              </form>
+            </span>
+            <img src="imgs/form_img_2.png" alt="form_img_2">
         </section>
     </div>
     <img src="imgs/arrow.png" alt="arrow" class="return"></img>

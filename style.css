@@ -29,6 +29,10 @@
     .navigation.navigation:nth-last-child(1) {
         left: 96%;
     }
+
+    section:nth-child(4) img {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 751px) and (max-width: 1250px) {
@@ -98,7 +102,6 @@ section:nth-child(3) {
 section:nth-child(4) {
     --section-index: 3;
     align-items: center;
-    flex-direction: column;
     background-color: rgb(10, 40, 70);
     padding-top: 8rem;
 }
@@ -232,6 +235,7 @@ i {
     left: 3rem;
     font-size: 2rem;
     opacity: 0.75;
+    z-index: 5;
 }
 
 b {
@@ -407,12 +411,27 @@ th, td {
     transition: 0.25s;
 }
 
+section:nth-child(4) img {
+    position: absolute;
+    width: 23%;
+    height: 100%;
+    top: 300%;
+    left: 0;
+    object-fit: cover;
+}
+
+section:nth-child(4) img:last-child {
+    left: auto;
+    right: 0;
+}
+
 h2 {
     font-size: 3rem;
+    text-align: center;
 }
 
 form {
-    width: 55rem;
+    width: 51rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -439,6 +458,11 @@ input, select {
     padding: 0.5rem;
     margin: 1rem 0 2rem 0;
     border: none;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type=submit] {
