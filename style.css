@@ -92,6 +92,7 @@ section:nth-child(3) {
     --section-index: 2;
     align-items: center;
     background-color: rgb(20, 50, 80);
+    padding-top: 8rem;
 }
 
 section:nth-child(4) {
@@ -99,6 +100,7 @@ section:nth-child(4) {
     align-items: center;
     flex-direction: column;
     background-color: rgb(10, 40, 70);
+    padding-top: 8rem;
 }
 
 header {
@@ -348,32 +350,33 @@ b {
 }
 
 table {
-    width: 70%;
-    margin-top: 6rem;
-    border-collapse: collapse;
+    width: 80%;
+    border-spacing: 0rem;
     font-size: 1.3rem;
     text-align: center;
 }
 
 table img {
     width: 2rem;
+    margin: 0 1rem -0.5rem 1rem;
 }
 
 table button {
-    background-color: rgb(20, 50, 80);
-    color: aliceblue;
-    border: none;
-    border-radius: 1rem;
-    padding: 1rem 4rem;
+    width: 100%;
+    background-color: aliceblue;
+    color: rgb(20, 50, 80);
+    border: 0.25rem solid rgb(20, 50, 80);
+    padding: 1rem;
     font-size: 1.3rem;
     font-weight: bold;
+    cursor: pointer;
     opacity: 0;
     transition: 0.25s;
-    cursor: pointer;
 }
 
 table button:hover {
-    scale: 1.1;
+    background-color: rgb(20, 50, 80);
+    color: aliceblue;
 }
 
 table button:active {
@@ -383,6 +386,10 @@ table button:active {
 
 th {
     font-size: 1.8rem;
+}
+
+th img:last-child {
+    transform: scaleX(-1);
 }
 
 tr:nth-child(2) td {
@@ -395,7 +402,7 @@ th:first-child, td:first-child {
 }
 
 th, td {
-    width: 10%;
+    width: 20%;
     padding: 1rem;
     transition: 0.25s;
 }
@@ -435,18 +442,21 @@ input, select {
 }
 
 input[type=submit] {
-    width: 75%;
-    height: 3.9rem;
+    height: auto;
+    width: 100%;
+    padding: 1rem;
     font-size: 1.5rem;
-    margin: 1rem 0 0 12.5%;
     color: aliceblue;
-    background-color: rgb(0, 175, 125);
-    border-radius: 1rem;
+    background-color: rgb(10, 40, 70);
+    border: 0.25rem solid aliceblue;
+    font-weight: bold;
+    cursor: pointer;
     transition: 0.25s;
 }
 
 input[type=submit]:hover {
-    scale: 1.1;
+    background-color: aliceblue;
+    color: rgb(10, 40, 70);
 }
 
 input[type=submit]:active {
