@@ -145,7 +145,7 @@ function websiteScroll(event) {
     }
 
     returnImg.classList.toggle('slide-down', currentScrollPosition !== 0);
-    setTimeout(() => scrollCooldown = false, 250);
+    setTimeout(() => scrollCooldown = false, 500);
 }
 
 function linkScroll(newScrollPosition) {
