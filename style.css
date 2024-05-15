@@ -29,13 +29,13 @@
     }
 }
 
-@media only screen and (min-width: 751px) and (max-width: 1250px) {
+@media only screen and (min-width: 751px) and (max-width: 1500px) {
     :root {
         font-size: 8px;
     }
 }
 
-@media only screen and (min-width: 1251px) and (max-width: 2000px) {
+@media only screen and (min-width: 1501px) and (max-width: 2000px) {
     :root {
         font-size: 12px;
     }
@@ -47,7 +47,13 @@
     }
 }
 
-@media only screen and (min-width: 3001px) {
+@media only screen and (min-width: 3001px) and (max-width: 3500px) {
+    :root {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 3501px) {
     :root {
         font-size: 24px;
     }
@@ -188,7 +194,7 @@ main p {
 
 .return {
     position: fixed;
-    width: 6rem;
+    width: 5rem;
     cursor: pointer;
     top: -50%;
     right: 50%;
@@ -197,12 +203,12 @@ main p {
 }
 
 .return:hover {
-    width: 7rem;
+    width: 5.5rem;
 }
 
 .return:active {
     transition: width 0.1s, top 1s;
-    width: 5.5rem;
+    width: 4.5rem;
 }
 
 .slide-down {
@@ -463,6 +469,7 @@ input[type=submit] {
     height: auto;
     width: 100%;
     padding: 1rem;
+    margin: 0.5rem 0;
     font-size: 1.5rem;
     color: aliceblue;
     background-color: rgb(10, 40, 70);
