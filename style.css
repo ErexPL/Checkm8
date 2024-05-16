@@ -25,6 +25,10 @@
         margin: 0 auto;
     }
 
+    .carousel-contents.carousel-contents div p {
+        font-size: 2rem;
+    }
+
     .carousel-contents.carousel-contents div p:last-child {
         width: 85%;
     }
