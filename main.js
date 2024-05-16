@@ -228,3 +228,24 @@ function startRandomNumbers() {
 
 startTextCycle();
 startRandomNumbers();
+
+const mediaQuery = window.matchMedia("(max-width: 750px)")
+const desktopElements = document.querySelectorAll('.desktop');
+
+function changeUI(mediaQuery) {
+    if (mediaQuery.matches) {
+        desktopElements.forEach(element => {
+            element.classList.add('hide');
+        });
+    } else {
+        desktopElements.forEach(element => {
+            element.classList.remove('hide');
+        });
+    }
+}
+
+changeUI(mediaQuery);
+
+mediaQuery.addEventListener("change", function() {
+    changeUI(mediaQuery);
+});

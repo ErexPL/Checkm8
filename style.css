@@ -9,23 +9,44 @@
 
 @media only screen and (max-width: 750px) {
     :root {
-        font-size: 5px;
+        font-size: 6px;
+    }
+
+    section hr {
+        width: 85%;
+        animation: none;
     }
 
     .carousel.carousel {
         width: 100%;
     }
 
+    .carousel-contents.carousel-contents div img {
+        margin: 0 auto;
+    }
+
+    .carousel-contents.carousel-contents div p:last-child {
+        width: 85%;
+    }
+
     .carousel-imgs {
         display: none;
     }
 
-    .navigation.navigation:nth-last-child(1) {
+    .navigation.navigation:last-child {
         left: 96%;
+    }
+
+    table th img {
+        display: none;
     }
 
     section:nth-child(4) img {
         display: none;
+    }
+
+    span form {
+        width: 85%;
     }
 }
 
@@ -86,6 +107,7 @@ section {
 section:nth-child(1) {
     --section-index: 0;
     display: block;
+    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
 }
 
 section:nth-child(2) {
@@ -108,7 +130,6 @@ section:nth-child(4) {
 
 header {
     position: absolute;
-    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
 }
 
 ul {
@@ -144,7 +165,6 @@ main {
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
 }
 
 video {
@@ -175,14 +195,13 @@ hr {
     width: 0;
     height: 0.2rem;
     background-color: aliceblue;
-    box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
     animation: widen 3s forwards;
     border: none;
 }
 
 @keyframes widen {
     100% { 
-        width: 60rem;
+        width: 40%;
     }
 }
 
@@ -223,7 +242,6 @@ footer {
     left: 3rem;
     bottom: 3rem;
     font-size: 1.3rem;
-    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
 }
 
 footer p {
@@ -281,13 +299,12 @@ b {
     transition: top 0.75s;
     margin: 0;
     height: 100%;
-    font-size: 3rem;
 }
 
 .carousel-contents {
     display: flex;
     position: relative;
-    width: 80%;
+    width: 85%;
     overflow: hidden;
 }
 
@@ -295,24 +312,25 @@ b {
     display: flex;
     position: absolute;
     justify-content: center;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
     width: 100%;
     transition: left 0.75s;
 }
 
 .carousel-contents div p {
-    width: 80%;
+    width: 85%;
     text-align: justify;
     font-size: 1.6rem;
     margin: 1rem;
 }
 
-.carousel-contents div p:nth-child(2) {
+.carousel-contents div p:last-child {
     width: 55%;
 }
 
 .carousel-contents div img {
-    width: 25%;
+    width: 30%;
 }
 
 .carousel-imgs {
@@ -358,6 +376,10 @@ table {
     font-size: 1.3rem;
     border-collapse: collapse;
     text-align: center;
+}
+
+.hide {
+    display: none;
 }
 
 table img {
@@ -413,7 +435,7 @@ th, td {
 
 section:nth-child(4) img {
     position: absolute;
-    width: 23%;
+    width: 25%;
     height: 100%;
     top: 300%;
     left: 0;
@@ -431,7 +453,8 @@ h2 {
 }
 
 form {
-    width: 51rem;
+    width: 40%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
