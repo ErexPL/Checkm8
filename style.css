@@ -37,6 +37,10 @@
         display: none;
     }
 
+    .navigation.navigation {
+        left: 4%;
+    }
+
     .navigation.navigation:last-child {
         left: 96%;
     }
@@ -362,7 +366,7 @@ b {
     transition: 0.25s;
 }
 
-.navigation:nth-last-child(1) {
+.navigation:last-child {
     left: 67.5%;
 }
 
