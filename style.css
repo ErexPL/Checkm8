@@ -94,7 +94,7 @@ html, body, #sectionBox {
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    scale: 1;
+    transform: scale(1);
     transition: 0.75s;
 }
 
@@ -149,11 +149,11 @@ li {
 }
 
 li:hover {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 
 li:active {
-    scale: 0.95;
+    transform: scale(0.95);
 }
 
 a {
@@ -356,23 +356,23 @@ b {
     position: fixed;
     cursor: pointer;
     top: 150%;
-    left: 4%;
+    left: 2.5%;
     width: 2.5rem;
     transform: translateX(-50%);
     transition: 0.25s;
 }
 
 .navigation:nth-last-child(1) {
-    left: 66%;
+    left: 67.5%;
 }
 
 .navigation:hover {
-    scale: 1.1;
+    transform: translateX(-50%) scale(1.1);
 }
 
 .navigation:active {
     transition: 0.1s;
-    scale: 0.95;
+    transform: translateX(-50%) scale(0.95);
 }
 
 table {
@@ -410,7 +410,7 @@ table button:hover {
 }
 
 table button:active {
-    scale: 0.95;
+    transform: scale(0.95);
     transition: 0.1s;
 }
 
@@ -508,5 +508,5 @@ input[type=submit]:hover {
 
 input[type=submit]:active {
     transition: 0.1s;
-    scale: 0.95;
+    transform: scale(0.95);
 }
