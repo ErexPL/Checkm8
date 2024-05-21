@@ -27,9 +27,9 @@ function scaleUpColumn(columnIndex) {
                 c.style.width = '25%';
             })
             table.querySelector(`td:nth-child(${columnIndex + 1}) button`).style.opacity = '1';
-            table.querySelectorAll(`th:nth-child(${columnIndex + 1}) img`).forEach(img => {
-                [prefix] = img.src.split('_');
-                img.src = `${prefix}_` + 'dark.png';
+            table.querySelectorAll(`th:nth-child(${columnIndex + 1}) source`).forEach(img => {
+                [prefix] = img.srcset.split('_');
+                img.srcset = `${prefix}_` + 'dark.png';
             })
     })
         cell.addEventListener('mouseleave', () => {
@@ -39,9 +39,9 @@ function scaleUpColumn(columnIndex) {
                 c.style.width = '20%';
             })
             table.querySelector(`td:nth-child(${columnIndex + 1}) button`).style.opacity = '0';
-            table.querySelectorAll(`th:nth-child(${columnIndex + 1}) img`).forEach(img => {
-                [prefix] = img.src.split('_');
-                img.src = `${prefix}_` + 'light.png';
+            table.querySelectorAll(`th:nth-child(${columnIndex + 1}) source`).forEach(img => {
+                [prefix] = img.srcset.split('_');
+                img.srcset = `${prefix}_` + 'light.png';
             })
         })
     })

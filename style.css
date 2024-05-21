@@ -418,7 +418,7 @@ th {
     font-size: 1.8rem;
 }
 
-th img:last-child {
+th picture:last-child img {
     transform: scaleX(-1);
 }
 
@@ -446,7 +446,7 @@ section:nth-child(4) img {
     object-fit: cover;
 }
 
-section:nth-child(4) img:last-child {
+section:nth-child(4) picture:last-child img {
     left: auto;
     right: 0;
 }

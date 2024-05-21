@@ -64,9 +64,18 @@
                 </div>
             </div>
             <span class="carousel-imgs">
-                <img src="imgs/carousel_img_1.png" alt="carousel_img_1" style="top: 0">
-                <img src="imgs/carousel_img_2.png" alt="carousel_img_2" style="top: 100%">
-                <img src="imgs/carousel_img_3.png" alt="carousel_img_3" style="top: -100%">
+                <picture>
+                    <source media="(min-width:751px)" srcset="imgs/carousel_img_1.png">
+                    <img alt="carousel_img_1" style="top: 0">
+                </picture>
+                <picture>
+                    <source media="(min-width:751px)" srcset="imgs/carousel_img_2.png">
+                    <img alt="carousel_img_2" style="top: 100%">
+                </picture>
+                <picture>
+                    <source media="(min-width:751px)" srcset="imgs/carousel_img_3.png">
+                    <img alt="carousel_img_3" style="top: -100%">
+                </picture>
             </span>
             <img src="imgs/arrow_mini_right.png" alt="arrow_mini_right" class="navigation right">
         </section>
@@ -76,9 +85,39 @@
             <table>
                 <tr>
                     <th>Version</th>
-                    <th><img src="imgs/basic_light.png" alt="basic_icon">Basic<img src="imgs/basic_light.png" alt="basic_icon"></th>
-                    <th><img src="imgs/pro_light.png" alt="pro_icon">Pro<img src="imgs/pro_light.png" alt="pro_icon"></th>
-                    <th><img src="imgs/expert_light.png" alt="expert_icon">Expert<img src="imgs/expert_light.png" alt="expert_icon"></th>
+                    <th>
+                        <picture>
+                            <source media="(min-width:751px)" srcset="imgs/basic_light.png">
+                            <img alt="basic_icon">
+                        </picture>
+                        <span>Basic</span>
+                        <picture>
+                            <source media="(min-width:751px)" srcset="imgs/basic_light.png">
+                            <img alt="basic_icon">
+                        </picture>
+                    </th>
+                    <th>
+                        <picture>
+                            <source media="(min-width:751px)" srcset="imgs/pro_light.png">
+                            <img alt="pro_icon">
+                        </picture>
+                        <span>Pro</span>
+                        <picture>
+                            <source media="(min-width:751px)" srcset="imgs/pro_light.png">
+                            <img alt="pro_icon">
+                        </picture>
+                    </th>
+                    <th>
+                        <picture>
+                            <source media="(min-width:751px)" srcset="imgs/expert_light.png">
+                            <img alt="expert_icon">
+                        </picture>
+                        <span>Expert</span>
+                        <picture>
+                            <source media="(min-width:751px)" srcset="imgs/expert_light.png">
+                            <img alt="expert_icon">
+                        </picture>
+                    </th>
                 </tr>
                 <tr>
                     <td>Price</td>
@@ -157,7 +196,6 @@
         <section>
             <i>Get Started</i>
             <b>03</b>
-            <img src="imgs/form_img_1.png" alt="form_img_1">
             <span>
                 <h2>Begin working with Checkm8</h2>
                 <hr>
@@ -185,7 +223,14 @@
                     <input type="submit" value="Subscribe">
                 </form>
             </span>
-            <img src="imgs/form_img_2.png" alt="form_img_2">
+            <picture>
+                <source media="(min-width:751px)" srcset="imgs/form_img_1.png">
+                <img alt="form_img_1">
+            </picture>
+            <picture>
+                <source media="(min-width:751px)" srcset="imgs/form_img_2.png">
+                <img alt="form_img_2">
+            </picture>
         </section>
     </div>
     <img src="imgs/arrow.png" alt="arrow" class="return">
